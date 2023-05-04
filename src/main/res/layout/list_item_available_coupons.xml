@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="brandTheme"
+            type="com.lib.loopsdk.data.remote.dto.InitializeDto.Data.BrandTheme" />
+        <variable
+            name="brandThemeColors"
+            type="com.lib.loopsdk.core.util.Colors" />
+    </data>
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingEnd="24dp"
+        android:paddingVertical="12dp"
+        android:layout_marginVertical="8dp"
+        android:background="@drawable/ic_bg_coupon">
+
+
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/ivDash"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent">
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvClassificationTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:visibility="gone"
+                android:layout_gravity="center_vertical|center_horizontal"
+                android:layout_marginBottom="-2dp"
+                style="@style/Header500"
+                android:tag="Header500"
+                app:fontName="@{brandTheme.themeFont.style}"
+                app:textViewColor="@{brandThemeColors.PRIMARY_BRAND_COLOR}"
+                android:textAlignment="center"
+                android:text=""/>
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:visibility="gone"
+                android:id="@+id/ivClassification"
+                android:layout_width="36dp"
+                android:layout_height="36dp"
+                android:layout_gravity="center_vertical|center_horizontal"
+                app:tintColor="@{brandThemeColors.PRIMARY_BRAND_COLOR}"
+                />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:visibility="gone"
+                android:id="@+id/tvClassificationDesc"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=""
+                style="@style/BodyDefault"
+                android:tag="BodyDefault"
+                app:fontName="@{brandTheme.themeFont.style}"
+                app:textViewColor="@{brandThemeColors.PRIMARY_BRAND_COLOR}"
+                android:layout_gravity="center_vertical|center_horizontal"
+                android:textColor="@color/text_black" />
+
+        </LinearLayout>
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/ivDash"
+            android:layout_width="2dp"
+            android:layout_height="match_parent"
+            android:layout_gravity="center_vertical"
+            android:layout_marginStart="104dp"
+            android:src="@drawable/dash_line"
+            app:layout_constraintStart_toStartOf="parent"
+            />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvCouponDesc"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            style="@style/BodyDefault"
+            android:tag="BodyDefault"
+            app:fontName="@{brandTheme.themeFont.style}"
+            android:textColor="@color/text_black"
+            android:text=""
+            android:layout_gravity="center_vertical"
+            android:ellipsize="end"
+            android:maxLines="2"
+            app:textAllCaps="false"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/ivDash"
+            app:layout_constraintEnd_toEndOf="parent"
+            />
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvDateDesc"
+            android:text=""
+            android:maxLines="1"
+            android:visibility="gone"
+            android:drawablePadding="4dp"
+            style="@style/BodyDefault"
+            android:tag="BodyDefault"
+            app:fontName="@{brandTheme.themeFont.style}"
+            android:textColor="@color/text_black"
+            android:drawableLeft="@drawable/ic_giftbox_filled"
+            android:layout_height="wrap_content"
+            android:drawableTint="@color/text_black"
+            android:layout_width="0dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/ivExpired"
+            app:layout_constraintStart_toStartOf="@+id/tvCouponDesc"
+            />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/ivExpired"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="20dp"
+            android:visibility="gone"
+            android:src="@drawable/ic_stopwatch"
+            android:tint="@color/error_red"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent" />
+
+
+        <LinearLayout
+            android:id="@+id/llUnlock"
+            android:visibility="visible"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/ivExpired"
+            app:layout_constraintStart_toStartOf="@+id/tvCouponDesc">
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvUnlockFor"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical|center_horizontal"
+                style="@style/ButtonLight"
+                android:tag="ButtonLight"
+                app:fontName="@{brandTheme.themeFont.style}"
+                app:textViewColor="@{brandThemeColors.PRIMARY_BRAND_COLOR}"
+                android:textAlignment="center"
+                android:text="Unlock for"/>
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/ivPointIcon"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_marginStart="4dp"
+                android:padding="1.5dp"
+                android:layout_gravity="center_horizontal"
+                app:colorTint="@{brandThemeColors.PRIMARY_BRAND_COLOR}"
+                />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvPoints"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="4dp"
+                android:text=""
+                style="@style/ButtonLight"
+                android:tag="ButtonLight"
+                app:fontName="@{brandTheme.themeFont.style}"
+                app:textViewColor="@{brandThemeColors.PRIMARY_BRAND_COLOR}"
+                android:layout_gravity="center_vertical|center_horizontal" />
+
+        </LinearLayout>
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

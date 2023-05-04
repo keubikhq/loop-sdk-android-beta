@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:tools="http://schemas.android.com/tools">
+    <data>
+        <variable
+            name="brandTheme"
+            type="com.lib.loopsdk.data.remote.dto.InitializeDto.Data.BrandTheme" />
+        <variable
+            name="brandThemeColors"
+            type="com.lib.loopsdk.core.util.Colors" />
+    </data>
+    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/clEmptyStateNoInternet"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:focusable="true"
+        android:visibility="visible"
+        android:background="@color/white"
+        tools:theme="@style/LibraryTheme">
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/ivNoInternet"
+            android:layout_width="200dp"
+            android:layout_height="200dp"
+            android:layout_marginTop="210dp"
+            android:src="@drawable/ic_network_error"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvNetworkError"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
+            android:text="@string/network_error"
+            android:textAlignment="center"
+            android:gravity="center"
+            style="@style/Header300"
+            android:tag="Header300"
+            app:fontName="@{brandTheme.themeFont.style}"
+            android:textColor="@color/text_black"
+            app:layout_constraintTop_toBottomOf="@+id/ivNoInternet" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvNoInternetDes"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="@string/looks_like_something_went_wrong_you_can_continue_exploring_when_you_re_back_on_the_internet"
+            android:textAlignment="center"
+            android:gravity="center"
+            android:layout_marginHorizontal="20dp"
+            style="@style/BodyDefault"
+            android:tag="BodyDefault"
+            app:fontName="@{brandTheme.themeFont.style}"
+            android:textColor="@color/text_medium_gray"
+            app:layout_constraintTop_toBottomOf="@+id/tvNetworkError" />
+
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/btnReload"
+            android:layout_width="match_parent"
+            android:layout_height="44dp"
+            app:shapeParam="@{brandTheme.themeShapes.buttons.style}"
+            app:cardBgColor="@{brandThemeColors.SECONDARY_BRAND_COLOR}"
+            android:layout_marginBottom="40dp"
+            android:layout_marginHorizontal="20dp"
+            app:layout_constraintBottom_toBottomOf="parent">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:orientation="horizontal">
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:layout_width="16dp"
+                    android:layout_height="16dp"
+                    android:layout_marginTop="2dp"
+                    android:src="@drawable/ic_redo"
+                    app:tintColor="@{brandThemeColors.PRIMARY_BRAND_COLOR}"/>
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="12dp"
+                    android:text="@string/retry"
+                    android:layout_gravity="center_vertical"
+                    android:textColor="@color/white"
+                    style="@style/ButtonDefault"
+                    android:tag="ButtonDefault"
+                    app:fontName="@{brandTheme.themeFont.style}"
+                    app:textViewColor="@{brandThemeColors.PRIMARY_BRAND_COLOR}"/>
+
+            </LinearLayout>
+
+        </com.google.android.material.card.MaterialCardView>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

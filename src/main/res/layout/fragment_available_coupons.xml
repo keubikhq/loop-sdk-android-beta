@@ -1,0 +1,445 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="brandTheme"
+            type="com.lib.loopsdk.data.remote.dto.InitializeDto.Data.BrandTheme" />
+        <variable
+            name="brandThemeColors"
+            type="com.lib.loopsdk.core.util.Colors" />
+
+    </data>
+
+<androidx.constraintlayout.widget.ConstraintLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.feature_offers.available_coupons.AvailableCouponsFragment">
+
+
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/cvSearch"
+        android:layout_width="0dp"
+        android:layout_height="32dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginHorizontal="20dp"
+        app:cardElevation="0dp"
+        app:strokeWidth="1dp"
+        app:cardBorderColor="@{brandThemeColors.PRIMARY_BRAND_COLOR}"
+        app:shapeParam="@{brandTheme.themeShapes.buttons.style}"
+        app:cardBackgroundColor="@color/white"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/btnFilter"
+        app:layout_constraintTop_toTopOf="parent">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/ivSearch"
+                android:layout_width="16dp"
+                android:layout_height="16dp"
+                android:visibility="visible"
+                android:layout_marginStart="12dp"
+                android:layout_gravity="center_vertical"
+                android:src="@drawable/ic_search"
+                app:tintColor="@{brandThemeColors.PRIMARY_BRAND_COLOR}"
+                />
+
+
+            <androidx.appcompat.widget.AppCompatEditText
+                android:id="@+id/etSearch"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                style="@style/BodyDefault"
+                android:tag="BodyDefault"
+                android:layout_weight="1"
+                app:fontName="@{brandTheme.themeFont.style}"
+                android:singleLine="true"
+                android:layout_gravity="center_vertical"
+                android:hint="@string/search"
+                app:textHintColor="@{brandThemeColors.PRIMARY_BRAND_COLOR}"
+                android:layout_marginHorizontal="12dp"
+                android:maxLines="1"
+                android:textCursorDrawable="@color/text_black"
+                android:textColor="@color/text_black"
+                android:background="@android:color/transparent"/>
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/btnClearSearch"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:visibility="gone"
+                android:padding="4dp"
+                android:layout_marginEnd="12dp"
+                android:layout_gravity="center_vertical"
+                app:tintColor="@{brandThemeColors.PRIMARY_BRAND_COLOR}"
+                android:src="@drawable/ic_close_exit_cross_rounded"
+                />
+        </LinearLayout>
+    </com.google.android.material.card.MaterialCardView>
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/btnFilter"
+        android:layout_width="48dp"
+        android:layout_height="32dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginHorizontal="20dp"
+        app:cardElevation="0dp"
+        app:cardBackgroundColor="@color/white"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:cardBorderColor="@{brandThemeColors.PRIMARY_BRAND_COLOR}"
+        app:shapeParam="@{brandTheme.themeShapes.buttons.style}">
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/ivFilter"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:visibility="visible"
+            android:layout_gravity="center_horizontal|center_vertical"
+            android:src="@drawable/ic_filter"
+            app:tintColor="@{brandThemeColors.PRIMARY_BRAND_COLOR}"
+            />
+    </com.google.android.material.card.MaterialCardView>
+
+    <androidx.core.widget.NestedScrollView
+        android:id="@+id/mainScrollView"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnFilter">
+
+        <LinearLayout
+            android:alpha="0"
+            android:translationY="10dp"
+            android:id="@+id/llHeader"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:id="@+id/clFilterChipContainer"
+                android:visibility="gone"
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_marginTop="12dp"
+                android:layout_height="wrap_content">
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rvFilterChip"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginEnd="4dp"
+                    android:orientation="horizontal"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:listitem="@layout/list_item_coupon_chip_filter"
+                    />
+                <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/btnClearFilter"
+                    android:layout_width="wrap_content"
+                    android:layout_height="24dp"
+                    android:layout_marginStart="4dp"
+                    app:cardElevation="0dp"
+                    android:layout_marginTop="12dp"
+                    android:layout_marginEnd="20dp"
+                    app:layout_constraintTop_toTopOf="@id/rvFilterChip"
+                    app:layout_constraintStart_toEndOf="@id/rvFilterChip"
+                    app:shapeParam="@{brandTheme.themeShapes.buttons.style}"
+                    app:cardBgColor="@{brandThemeColors.PRIMARY_BRAND_COLOR}">
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:gravity="center"
+                        android:layout_gravity="center"
+                        style="@style/BodySmall"
+                        android:tag="BodySmall"
+                        android:layout_marginHorizontal="12dp"
+                        android:layout_marginVertical="4dp"
+                        app:fontName="@{brandTheme.themeFont.style}"
+                        android:text="@string/clear_all"
+                        app:textViewColor="@{brandThemeColors.FONT_COLOR}"/>
+                </com.google.android.material.card.MaterialCardView>
+
+
+
+            </LinearLayout>
+
+
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/clFeaturedCouponsContainer"
+                android:visibility="gone"
+                android:layout_width="match_parent"
+                android:layout_marginTop="36dp"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@id/btnSearch">
+
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tvFeaturedCoupons"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    style="@style/Header400"
+                    android:tag="Header400"
+                    app:fontName="@{brandTheme.themeFont.style}"
+                    android:text="@string/featured_coupons"
+                    android:ellipsize="end"
+                    android:gravity="center_horizontal"
+                    app:textAllCaps="false"
+                    android:layout_marginStart="20dp"
+                    android:textColor="@color/text_black"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    />
+                <HorizontalScrollView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:scrollbars="none"
+                    android:fillViewport="true"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/tvFeaturedCoupons">
+
+                    <RelativeLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content">
+
+                        <androidx.recyclerview.widget.RecyclerView
+                            android:layout_marginTop="20dp"
+                            android:id="@+id/rvFeaturedCoupons"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <androidx.recyclerview.widget.RecyclerView
+                            android:layout_marginTop="20dp"
+                            android:id="@+id/rvSearchFeaturedCoupons"
+                            android:visibility="gone"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                    </RelativeLayout>
+                </HorizontalScrollView>
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/clRedeemPointsContainer"
+                android:visibility="gone"
+                android:layout_width="match_parent"
+                android:layout_marginTop="36dp"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@id/btnSearch">
+
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tvRedeemPointsHeader"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/redeem_points"
+                    android:ellipsize="end"
+                    android:gravity="center_horizontal"
+                    app:textAllCaps="false"
+                    android:layout_marginStart="20dp"
+                    style="@style/Header400"
+                    android:tag="Header400"
+                    app:fontName="@{brandTheme.themeFont.style}"
+                    android:textColor="@color/text_black"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    />
+
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:cardElevation="0dp"
+                    app:cardCornerRadius="12dp"
+                    android:layout_marginHorizontal="20dp"
+                    android:layout_marginTop="20dp"
+                    app:layout_constraintTop_toBottomOf="@id/tvRedeemPointsHeader"
+                    app:cardBackgroundColor="@color/bg_gray">
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:paddingHorizontal="20dp"
+                        android:paddingVertical="12dp"
+                        android:layout_height="wrap_content">
+
+
+                        <androidx.appcompat.widget.AppCompatImageView
+                            android:id="@+id/ivCoupon"
+                            android:layout_width="64dp"
+                            android:layout_height="64dp"
+                            android:src="@drawable/coupon_d"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            />
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:id="@+id/tvRedeemPoints"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            style="@style/Header300"
+                            android:tag="Header300"
+                            app:fontName="@{brandTheme.themeFont.style}"
+                            android:text=""
+                            android:ellipsize="end"
+                            android:gravity="center_horizontal"
+                            app:textAllCaps="false"
+                            android:layout_marginStart="15dp"
+                            android:textColor="@color/text_black"
+                            app:layout_constraintStart_toEndOf="@+id/ivCoupon"
+                            app:layout_constraintTop_toTopOf="parent"
+                            />
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/use_points_to_create_a_custom_ndiscount_coupon"
+                            android:ellipsize="end"
+                            android:gravity="start"
+                            app:textAllCaps="false"
+                            android:layout_marginTop="4dp"
+                            style="@style/BodyDefault"
+                            android:tag="BodyDefault"
+                            app:fontName="@{brandTheme.themeFont.style}"
+                            android:textColor="@color/text_dark_gray"
+                            app:layout_constraintStart_toStartOf="@id/tvRedeemPoints"
+                            app:layout_constraintTop_toBottomOf="@id/tvRedeemPoints"
+                            />
+
+                        <androidx.appcompat.widget.AppCompatImageView
+                            android:id="@+id/ivNext"
+                            android:layout_width="24dp"
+                            android:layout_height="24dp"
+                            android:padding="1dp"
+                            android:drawableTint="@color/black"
+                            android:layout_gravity="center_vertical"
+                            android:src="@drawable/chevron_right_arrow"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            />
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                </androidx.cardview.widget.CardView>
+
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/clCouponsContainer"
+                android:visibility="gone"
+                android:layout_width="match_parent"
+                android:layout_marginTop="36dp"
+                android:layout_marginBottom="40dp"
+                android:layout_height="match_parent">
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tvCouponHeader"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    style="@style/Header400"
+                    android:tag="Header400"
+                    app:fontName="@{brandTheme.themeFont.style}"
+                    android:text="@string/coupons_to_explore"
+                    android:ellipsize="end"
+                    android:gravity="center_horizontal"
+                    app:textAllCaps="false"
+                    android:layout_marginStart="20dp"
+                    android:textColor="@color/text_black"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rvDefaultCoupons"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginHorizontal="20dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tvCouponHeader" />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rvSearchCoupons"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="8dp"
+                    android:visibility="gone"
+                    android:layout_marginHorizontal="20dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tvCouponHeader" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/clEmptyState"
+                android:layout_width="match_parent"
+                android:layout_height="400dp"
+                android:visibility="gone">
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/ivIcon"
+                    android:layout_width="170dp"
+                    android:layout_height="170dp"
+                    android:src="@drawable/coupon_d"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    />
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tvHeader"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    style="@style/Header300"
+                    android:tag="Header300"
+                    app:fontName="@{brandTheme.themeFont.style}"
+                    android:textColor="@color/text_black"
+                    android:text="@string/oh_no_coupon"
+                    app:textAllCaps="false"
+                    android:layout_marginTop="13dp"
+                    app:layout_constraintTop_toBottomOf="@id/ivIcon"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    />
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tvDesc"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:textAllCaps="false"
+                    style="@style/BodyDefault"
+                    android:tag="BodyDefault"
+                    android:text="@string/come_back_later_for_more_coupons"
+                    app:fontName="@{brandTheme.themeFont.style}"
+                    android:textColor="@color/text_medium_gray"
+                    android:layout_marginTop="8dp"
+                    android:gravity="center_horizontal"
+                    android:layout_marginHorizontal="20dp"
+                    app:layout_constraintTop_toBottomOf="@id/tvHeader"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </LinearLayout>
+
+    </androidx.core.widget.NestedScrollView>
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

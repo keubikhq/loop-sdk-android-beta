@@ -1,0 +1,224 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+
+    <data>
+
+        <variable
+            name="brandTheme"
+            type="com.lib.loopsdk.data.remote.dto.InitializeDto.Data.BrandTheme" />
+
+        <variable
+            name="brandThemeColors"
+            type="com.lib.loopsdk.core.util.Colors" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/rootView"
+        tools:theme="@style/LibraryTheme"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp">
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/cvQuestionCount"
+            android:layout_width="108dp"
+            android:layout_height="32dp"
+            android:layout_marginTop="16dp"
+            app:cardElevation="0dp"
+            app:cardBackgroundColor="@color/bg_gray"
+            app:cardCornerRadius="20dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvQuestionNo"
+                style="@style/Header100"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:tag="Header100"
+                android:textColor="@color/text_black"
+                app:fontName="@{brandTheme.themeFont.style}" />
+
+        </com.google.android.material.card.MaterialCardView>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/clQuestion"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginTop="20dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/cvQuestionCount">
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvQuestion"
+                style="@style/Header400"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:tag="Header400"
+                android:textColor="#212121"
+                app:fontName="@{brandTheme.themeFont.style}"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvDescription"
+                style="@style/BodyDefault"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:tag="BodyDefault"
+                android:textColor="@color/text_medium_gray"
+                app:fontName="@{brandTheme.themeFont.style}"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tvQuestion" />
+
+            <ScrollView
+                android:id="@+id/SVanswer"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_marginTop="24dp"
+                android:fadeScrollbars="false"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tvDescription">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/rvOptions"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                        app:layout_constraintTop_toTopOf="parent"
+                        tools:itemCount="6" />
+
+                    <com.google.android.material.card.MaterialCardView
+                        android:id="@+id/cvChoiceOtherSelected"
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:visibility="gone"
+                        app:cardElevation="0dp"
+                        app:cardBgColor="@{brandThemeColors.SECONDARY_BRAND_COLOR}"
+                        app:cardBorderColor="@{brandThemeColors.PRIMARY_BRAND_COLOR}"
+                        app:layout_constraintBottom_toBottomOf="@+id/llOther"
+                        app:layout_constraintTop_toBottomOf="@+id/rvOptions"
+                        app:shapeParam="@{brandTheme.themeShapes.buttons.style}"
+                        app:strokeWidth="1dp" />
+
+                    <com.google.android.material.card.MaterialCardView
+                        android:id="@+id/cvChoiceOther"
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        app:cardElevation="0dp"
+                        app:cardBackgroundColor="@color/bg_gray"
+                        app:layout_constraintBottom_toBottomOf="@+id/llOther"
+                        app:layout_constraintTop_toBottomOf="@+id/rvOptions"
+                        app:shapeParam="@{brandTheme.themeShapes.buttons.style}" />
+
+                    <LinearLayout
+                        android:id="@+id/llOther"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        app:layout_constraintTop_toBottomOf="@+id/rvOptions">
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:id="@+id/tvChoiceOther"
+                            style="@style/BodyDefault"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_marginVertical="12dp"
+                            android:layout_marginStart="16dp"
+                            android:layout_marginEnd="16dp"
+                            android:gravity="center_vertical"
+                            android:tag="BodyDefault"
+                            android:text="Other"
+                            android:textColor="@color/text_black"
+                            android:visibility="visible"
+                            app:fontName="@{brandTheme.themeFont.style}" />
+
+                        <androidx.constraintlayout.widget.ConstraintLayout
+                            android:id="@+id/clAdd"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_marginVertical="8dp"
+                            android:layout_marginStart="16dp"
+                            android:layout_marginEnd="16dp"
+                            android:visibility="gone">
+
+                            <androidx.core.widget.NestedScrollView
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintEnd_toStartOf="@id/cvAdd"
+                                app:layout_constraintHorizontal_bias="0"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toTopOf="parent">
+
+                            <EditText
+                                android:id="@+id/etOtherAnswer"
+                                style="@style/BodyDefault"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_centerVertical="true"
+                                android:background="@android:color/transparent"
+                                android:hint="Enter your answer"
+                                android:maxLines="1"
+                                android:minLines="1"
+                                android:textColor="@color/text_black"
+                                android:textCursorDrawable="@null" />
+                            </androidx.core.widget.NestedScrollView>
+
+                            <com.google.android.material.card.MaterialCardView
+                                android:id="@+id/cvAdd"
+                                android:layout_width="60dp"
+                                android:layout_height="28dp"
+                                android:layout_alignParentEnd="true"
+                                android:layout_centerVertical="true"
+                                android:visibility="visible"
+                                app:cardBgColor="@{brandThemeColors.PRIMARY_BRAND_COLOR}"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintTop_toTopOf="parent"
+                                app:shapeParam="@{brandTheme.themeShapes.buttons.style}">
+
+                                <LinearLayout
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="center"
+                                    android:orientation="horizontal">
+
+                                    <androidx.appcompat.widget.AppCompatImageView
+                                        android:layout_width="14dp"
+                                        android:layout_height="14dp"
+                                        android:src="@drawable/ic_plus"
+                                        android:layout_gravity="center_vertical"
+                                        app:tintColor="@{brandThemeColors.FONT_COLOR}" />
+
+                                    <androidx.appcompat.widget.AppCompatTextView
+                                        style="@style/BodySmallSemiBold"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginStart="4dp"
+                                        android:tag="BodySmallSemiBold"
+                                        android:text="ADD"
+                                        app:fontName="@{brandTheme.themeFont.style}"
+                                        app:textViewColor="@{brandThemeColors.FONT_COLOR}" />
+                                </LinearLayout>
+                            </com.google.android.material.card.MaterialCardView>
+
+                        </androidx.constraintlayout.widget.ConstraintLayout>
+
+                    </LinearLayout>
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </ScrollView>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

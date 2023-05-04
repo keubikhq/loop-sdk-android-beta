@@ -1,0 +1,445 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="brandTheme"
+            type="com.lib.loopsdk.data.remote.dto.InitializeDto.Data.BrandTheme" />
+        <variable
+            name="brandThemeColors"
+            type="com.lib.loopsdk.core.util.Colors" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/ivClose"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="20dp"
+            android:src="@drawable/ic_back_arrow"
+            android:tint="@color/text_black"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/cvPoints"
+            android:layout_width="wrap_content"
+            android:layout_height="32dp"
+            app:cardElevation="0dp"
+            app:shape="@{brandTheme.themeShapes.buttons.style}"
+            app:style="@{brandTheme.themeButtons.style}"
+            android:layout_marginEnd="20dp"
+            app:layout_constraintTop_toTopOf="@+id/ivClose"
+            app:layout_constraintBottom_toBottomOf="@+id/ivClose"
+            app:layout_constraintEnd_toEndOf="parent">
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginHorizontal="12dp"
+                android:layout_gravity="center_vertical">
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="20dp"
+                    android:layout_gravity="center_vertical"
+                    app:styleIfInsideButton="@{brandTheme.themeButtons.style}"/>
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tvUserPoints"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="6dp"
+                    style="@style/Header300"
+                    android:tag="Header300"
+                    app:fontName="@{brandTheme.themeFont.style}"
+                    app:colorIfInsideButton="@{brandTheme.themeButtons.style}"
+                    android:layout_marginTop="1dp"
+                    android:layout_gravity="center_vertical"
+                    android:text=""/>
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+<!--        <LinearLayout-->
+<!--            android:id="@+id/llDetail"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_marginTop="36dp"-->
+<!--            android:orientation="horizontal"-->
+<!--            android:paddingStart="20dp"-->
+<!--            android:paddingEnd="20dp"-->
+<!--            app:layout_constraintTop_toBottomOf="@+id/cvPoints"-->
+<!--            app:layout_constraintStart_toStartOf="parent"-->
+<!--            app:layout_constraintEnd_toEndOf="parent">-->
+
+<!--            <androidx.appcompat.widget.AppCompatTextView-->
+<!--                android:id="@+id/tvTitle"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:text=""-->
+<!--                android:ellipsize="end"-->
+<!--                android:maxLines="1"-->
+<!--                android:gravity="center"-->
+<!--                app:textAllCaps="false"-->
+<!--                android:visibility="gone"-->
+<!--                android:layout_gravity="center_vertical"-->
+<!--                style="@style/Header400"-->
+<!--                android:tag="Header400"-->
+<!--                app:fontName="@{brandTheme.themeFont.style}"-->
+<!--                android:textColor="@color/text_black"-->
+<!--                />-->
+<!--            <androidx.appcompat.widget.AppCompatTextView-->
+<!--                android:id="@+id/tvTitle1"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:text=""-->
+<!--                android:ellipsize="end"-->
+<!--                android:maxLines="2"-->
+<!--                android:gravity="center"-->
+<!--                app:textAllCaps="false"-->
+<!--                android:visibility="gone"-->
+<!--                android:layout_gravity="center_vertical"-->
+<!--                style="@style/Header300"-->
+<!--                android:tag="Header300"-->
+<!--                app:fontName="@{brandTheme.themeFont.style}"-->
+<!--                android:textColor="@color/text_black"-->
+<!--                />-->
+
+<!--        </LinearLayout>-->
+
+        <LinearLayout
+            android:id="@+id/llDetail"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="36dp"
+            android:layout_marginHorizontal="15dp"
+            android:gravity="center_horizontal"
+            app:layout_constraintTop_toBottomOf="@+id/cvPoints"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent">
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAlignment="center"
+                android:gravity="center"
+                android:maxLines="1"
+                android:singleLine="true"
+                android:ellipsize="end"
+                style="@style/Header400"
+                android:tag="Header400"
+                app:fontName="@{brandTheme.themeFont.style}"
+                android:textColor="@color/text_black"/>
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/btnTnC"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                app:srcCompat="@drawable/ic_info"
+                app:tintColor="@{brandThemeColors.PRIMARY_BRAND_COLOR}"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="4dp"
+                android:scaleType="center"/>
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:id="@+id/llAttemps"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="14dp"
+            android:orientation="horizontal"
+            app:layout_constraintTop_toBottomOf="@+id/llDetail"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent">
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="attempts remaining :"
+                android:layout_gravity="center_vertical"
+                style="@style/BodyDefault"
+                android:tag="BodyDefault"
+                app:fontName="@{brandTheme.themeFont.style}"
+                android:textColor="@color/text_dark_gray"
+                />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvAttempts"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=""
+                style="@style/BodyDefault"
+                android:tag="BodyDefault"
+                app:fontName="@{brandTheme.themeFont.style}"
+                app:textViewColor="@{brandThemeColors.PRIMARY_BRAND_COLOR}"
+                android:layout_marginStart="3dp"/>
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:id="@+id/llUnlockedState"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="100dp"
+            android:orientation="vertical"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent">
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_gravity="center_horizontal"
+                android:gravity="center_horizontal"
+                android:src="@drawable/ic_arrow_up"
+                android:tint="@color/black"
+                />
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_marginTop="40dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Click ‘Spin’ to Start"
+                style="@style/Header300"
+                android:tag="Header300"
+                app:fontName="@{brandTheme.themeFont.style}"
+                android:textColor="@color/text_black"
+                />
+
+        </LinearLayout>
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/ivWheelArrow"
+            android:layout_width="wrap_content"
+            android:layout_height="60dp"
+            android:elevation="8dp"
+            android:visibility="visible"
+            android:src="@drawable/ic_spin_arrow"
+            app:tintColor="@{brandThemeColors.PRIMARY_BRAND_COLOR}"
+            android:layout_marginBottom="-25dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintBottom_toTopOf="@id/clspinwheellayout" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/clspinwheellayout"
+            android:visibility="visible"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/llAttemps"
+            app:layout_constraintBottom_toTopOf="@id/ivDivider"
+            >
+
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/ivWheelCircle"
+                android:layout_width="300dp"
+                android:layout_height="300dp"
+                android:scaleType="fitXY"
+                android:elevation="8dp"
+                android:src="@drawable/ic_bg_wheel"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"/>
+
+            <com.lib.loopsdk.core.rubikstudio_library.LuckyWheelView
+                android:id="@+id/luckyWheelView"
+                android:layout_width="290dp"
+                android:layout_height="290dp"
+                android:layout_gravity="center"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:lkwBackgroundColor="#F7F8FA"
+                app:lkwEdgeWidth="1"
+                android:elevation="8dp"
+                android:layout_marginStart="0dp"
+                app:lkwTopTextSize="14sp"
+                />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/btnSpinWheel"
+                android:layout_width="130dp"
+                android:layout_height="130dp"
+                android:elevation="8dp"
+                android:src="@drawable/ic_wheel_circle"
+                app:layout_constraintBottom_toBottomOf="@id/luckyWheelView"
+                app:layout_constraintEnd_toEndOf="@+id/luckyWheelView"
+                app:layout_constraintStart_toStartOf="@+id/luckyWheelView"
+                app:layout_constraintTop_toTopOf="@+id/luckyWheelView" />
+
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvSpin"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="SPIN"
+                style="@style/Header500"
+                android:tag="Header500"
+                android:elevation="12dp"
+                app:layout_constraintTop_toTopOf="@+id/btnSpinWheel"
+                app:layout_constraintBottom_toBottomOf="@+id/btnSpinWheel"
+                app:layout_constraintStart_toStartOf="@+id/btnSpinWheel"
+                app:layout_constraintEnd_toEndOf="@+id/btnSpinWheel"
+                app:fontName="@{brandTheme.themeFont.style}"
+                app:textViewColor="@{brandThemeColors.PRIMARY_BRAND_COLOR}"
+                />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/ivLock"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:scaleType="center"
+            android:visibility="gone"
+            android:elevation="8dp"
+            android:background="@drawable/ic_lock"
+            app:layout_constraintBottom_toBottomOf="@+id/clspinwheellayout"
+            app:layout_constraintEnd_toEndOf="@+id/clspinwheellayout"
+            app:layout_constraintStart_toStartOf="@+id/clspinwheellayout"
+            app:layout_constraintTop_toTopOf="@+id/clspinwheellayout" />
+
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/ivDivider"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:cardElevation="0dp"
+            app:alphaValue="P_20"
+            android:scaleType="fitXY"
+            android:layout_marginBottom="168dp"
+            android:layout_marginHorizontal="20dp"
+            android:src="@drawable/dash_line_horizontal"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"/>
+
+
+
+<!--        <com.lib.loopsdk.core.customViews.SwipeToUnlockView-->
+<!--            android:id="@+id/swipeToUnlock"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:visibility="gone"-->
+<!--            android:layout_marginBottom="40dp"-->
+<!--            android:layout_marginHorizontal="20dp"-->
+<!--            app:layout_constraintBottom_toBottomOf="parent"-->
+<!--            app:layout_constraintEnd_toEndOf="parent"-->
+<!--            app:layout_constraintStart_toStartOf="parent"/>-->
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/btnSwipeToUnlock"
+            android:visibility="gone"
+            android:layout_width="match_parent"
+            android:layout_height="44dp"
+            android:elevation="0dp"
+            app:shape="@{brandTheme.themeShapes.buttons.style}"
+            app:style="@{brandTheme.themeButtons.style}"
+            android:layout_marginBottom="40dp"
+            android:layout_marginHorizontal="20dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent">
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Tap to Unlock"
+                android:layout_gravity="center"
+                style="@style/ButtonDefault"
+                android:tag="ButtonDefault"
+                app:fontName="@{brandTheme.themeFont.style}"
+                app:colorIfInsideButton="@{brandTheme.themeButtons.style}" />
+
+        </com.google.android.material.card.MaterialCardView>
+
+
+
+        <LinearLayout
+            android:id="@+id/llUnlock"
+            android:visibility="gone"
+            android:layout_marginTop="36dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/ivDivider">
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvUnlockFor"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical|center_horizontal"
+                style="@style/Header300"
+                android:tag="Header300"
+                app:fontName="@{brandTheme.themeFont.style}"
+                android:textColor="@color/text_black"
+                android:textAlignment="center"
+                android:text="@string/unlock_for"/>
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/ivPointIcon"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:visibility="gone"
+                android:layout_marginStart="4dp"
+                android:layout_gravity="center_vertical|center_horizontal"
+                app:colorTint="@{brandThemeColors.PRIMARY_BRAND_COLOR}"
+                />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvPoints"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="4dp"
+                android:text=""
+                android:visibility="gone"
+                style="@style/Header300"
+                android:tag="Header300"
+                app:fontName="@{brandTheme.themeFont.style}"
+                android:layout_gravity="center_vertical|center_horizontal"
+                android:textColor="@color/text_black" />
+
+        </LinearLayout>
+
+
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvOutOfSpin"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Try unlocking other wheels or comeback later once new wheels are added"
+            android:visibility="gone"
+            android:gravity="center"
+            style="@style/BodyDefault"
+            android:tag="BodyDefault"
+            app:fontName="@{brandTheme.themeFont.style}"
+            android:textColor="@color/text_medium_gray"
+            android:layout_marginHorizontal="20dp"
+            android:layout_marginBottom="60dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"/>
+
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

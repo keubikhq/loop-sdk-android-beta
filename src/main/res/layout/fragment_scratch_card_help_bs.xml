@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="brandTheme"
+            type="com.lib.loopsdk.data.remote.dto.InitializeDto.Data.BrandTheme" />
+
+        <variable
+            name="brandThemeColors"
+            type="com.lib.loopsdk.core.util.Colors" />
+    </data>
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_behavior="com.google.android.material.bottomsheet.BottomSheetBehavior">
+
+    <View
+        android:layout_width="match_parent"
+        android:background="@drawable/shadow_view"
+        android:layout_height="50dp"
+        android:layout_marginBottom="-35dp"
+        app:layout_constraintBottom_toTopOf="@+id/rootView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"/>
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingBottom="20dp"
+        android:paddingHorizontal="20dp"
+        android:id="@+id/rootView"
+        android:elevation="@dimen/dp_16"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:background="@drawable/bg_white_round_top"
+        app:layout_behavior="com.google.android.material.bottomsheet.BottomSheetBehavior"
+        tools:context=".ui.fragment.SurveyHelpBottomSheetFragment">
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cvSlider"
+            android:layout_width="48dp"
+            android:layout_height="4dp"
+            android:layout_marginTop="12dp"
+            app:cardBackgroundColor="@color/text_light_gray"
+            app:cardCornerRadius="100dp"
+            app:cardElevation="0dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/ivLogo"
+            android:layout_width="64dp"
+            android:layout_height="64dp"
+            android:layout_marginTop="16dp"
+            android:src="@drawable/scratch_card_circular"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/cvSlider" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvHeader"
+            style="@style/Header400"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:tag="Header400"
+            android:text="Scratch Card"
+            android:textColor="@color/text_black"
+            app:fontName="@{brandTheme.themeFont.style}"
+            app:layout_constraintBottom_toBottomOf="@id/ivLogo"
+            app:layout_constraintStart_toEndOf="@id/ivLogo"
+            app:layout_constraintTop_toTopOf="@id/ivLogo" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvTitle1"
+            style="@style/Header300"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:tag="Header300"
+            android:text="@string/how_to_play"
+            android:textColor="@color/text_black"
+            app:fontName="@{brandTheme.themeFont.style}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/ivLogo" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvDec1"
+            style="@style/BodyDefault"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:tag="BodyDefault"
+            android:text="After unlocking, scratch the card to reveal exclusive &amp; exciting prizes."
+            android:textColor="@color/text_medium_gray"
+            app:fontName="@{brandTheme.themeFont.style}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvTitle1" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/ivDivider"
+            android:layout_width="match_parent"
+            android:layout_height="3dp"
+            android:layout_marginTop="32dp"
+            android:src="@drawable/dashed_line_light_gray"
+            app:layout_constraintTop_toBottomOf="@+id/tvDec1" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvTitle2"
+            style="@style/Header300"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:tag="Header300"
+            android:text="@string/terms_conditions"
+            android:textColor="@color/text_black"
+            app:fontName="@{brandTheme.themeFont.style}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/ivDivider" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvTnCDesc"
+            style="@style/ParaDefault"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:tag="ParaDefault"
+            android:textColor="@color/text_medium_gray"
+            app:fontName="@{brandTheme.themeFont.style}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvTitle2" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

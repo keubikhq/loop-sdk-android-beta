@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/main"
+    android:layout_width="32dp"
+    android:layout_height="36dp"
+    android:gravity="center"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    >
+    <!--if you does not want to change this text by progress,
+           you can set the TextView's id to others(not isb_progress).-->
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/ivIndicator"
+        android:layout_width="32dp"
+        android:layout_height="36dp"
+        android:src="@drawable/ic_slider_indicator_bg"/>
+    <TextView
+        android:id="@+id/tvIndicator"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginBottom="3dp"
+        android:text="2"
+        style="@style/Header400" />
+
+</FrameLayout>
+</layout>

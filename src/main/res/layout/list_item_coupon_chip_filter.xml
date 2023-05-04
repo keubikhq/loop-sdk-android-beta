@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <data>
+        <variable
+            name="brandTheme"
+            type="com.lib.loopsdk.data.remote.dto.InitializeDto.Data.BrandTheme" />
+        <variable
+            name="brandThemeColors"
+            type="com.lib.loopsdk.core.util.Colors" />
+    </data>
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="4dp">
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/cvFilterChip"
+            android:layout_width="wrap_content"
+            android:layout_height="24dp"
+            app:cardElevation="0dp"
+            app:strokeWidth="1dp"
+            app:shapeParam="@{brandTheme.themeShapes.buttons.style}"
+            app:cardBgColor="@{brandThemeColors.SECONDARY_BRAND_COLOR}"
+            app:cardBorderColor="@{brandThemeColors.PRIMARY_BRAND_COLOR}"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent">
+
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:paddingHorizontal="12dp"
+
+                android:orientation="horizontal">
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/ivPointIcon"
+                    android:layout_width="16dp"
+                    android:layout_height="16dp"
+                    android:padding="1dp"
+                    android:layout_gravity="center_horizontal|center_vertical"
+                    android:gravity="center_horizontal|center_vertical"
+                    android:visibility="visible"
+                    app:colorTint="@{brandThemeColors.PRIMARY_BRAND_COLOR}"
+                    />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tvFilterChip"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal|center_vertical"
+                    android:gravity="center_horizontal|center_vertical"
+                    style="@style/BodySmall"
+                    android:tag="BodySmall"
+                    android:layout_marginStart="3dp"
+                    app:fontName="@{brandTheme.themeFont.style}"
+                    android:text="Unlocked"
+                    app:textViewColor="@{brandThemeColors.PRIMARY_BRAND_COLOR}"/>
+            </LinearLayout>
+
+
+        </com.google.android.material.card.MaterialCardView>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

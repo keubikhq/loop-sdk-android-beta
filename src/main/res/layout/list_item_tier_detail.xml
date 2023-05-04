@@ -1,0 +1,360 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+
+    <data>
+        <variable
+            name="brandTheme"
+            type="com.lib.loopsdk.data.remote.dto.InitializeDto.Data.BrandTheme" />
+        <variable
+            name="brandThemeColors"
+            type="com.lib.loopsdk.core.util.Colors" />
+    </data>
+
+    <FrameLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        tools:theme="@style/LibraryTheme"
+        android:layout_marginBottom="16dp">
+
+        <com.sinaseyfi.advancedcardview.AdvancedCardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:background_Type="fill"
+            app:background_ColorType="solid"
+            app:background_Color="@color/bg_gray"
+            app:advancedCardContainerShape="@{brandTheme.themeShapes.container.style}">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="12dp"
+                android:layout_marginVertical="16dp"
+                android:orientation="horizontal">
+
+                <FrameLayout
+                    android:layout_width="64dp"
+                    android:layout_height="64dp">
+
+                    <androidx.appcompat.widget.AppCompatImageView
+                        android:id="@+id/iv_tier_icon"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginHorizontal="11dp"/>
+
+                    <View
+                        android:visibility="gone"
+                        android:id="@+id/view_disable_tier_icon"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginHorizontal="11dp"
+                        android:background="@color/bg_gray"
+                        android:alpha="0.5"/>
+
+                </FrameLayout>
+
+                <LinearLayout
+                    android:id="@+id/ll_content"
+                    android:layout_weight="1"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginVertical="8dp">
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/tv_tier_name"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        style="@style/Header300"
+                        android:tag="Header300"
+                        app:fontName="@{brandTheme.themeFont.style}"
+                        android:textColor="@color/text_black"/>
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/tv_unlocked_on_date"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="4dp"
+                        style="@style/BodyRegular"
+                        android:tag="BodyRegular"
+                        app:fontName="@{brandTheme.themeFont.style}"
+                        android:textColor="@color/text_dark_gray"/>
+
+                </LinearLayout>
+                
+                <FrameLayout
+                    android:id="@+id/fl_expand_btn"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:layout_marginTop="16dp">
+
+                    <androidx.appcompat.widget.AppCompatImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginVertical="4dp"
+                        android:layout_marginHorizontal="8dp"
+                        app:srcCompat="@drawable/ic_chevron_arrow_right_forward"
+                        app:tint="@color/text_black"/>
+
+                </FrameLayout>
+
+            </LinearLayout>
+
+        </com.sinaseyfi.advancedcardview.AdvancedCardView>
+
+        <LinearLayout
+            android:visibility="gone"
+            android:id="@+id/ll_expanded"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:clickable="true"
+            android:focusable="true">
+
+            <com.sinaseyfi.advancedcardview.AdvancedCardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:background_Type="fill"
+                app:background_ColorType="solid"
+                app:background_Color="@color/bg_gray"
+                app:advUpperCorners="@{brandTheme.themeShapes.container.style}">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="12dp"
+                    android:layout_marginVertical="16dp"
+                    android:orientation="horizontal">
+
+                    <FrameLayout
+                        android:layout_width="64dp"
+                        android:layout_height="64dp">
+
+                        <androidx.appcompat.widget.AppCompatImageView
+                            android:id="@+id/iv_tier_icon_expanded"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_marginHorizontal="11dp"/>
+
+                        <View
+                            android:id="@+id/view_disable_tier_icon_expanded"
+                            android:visibility="gone"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_marginHorizontal="11dp"
+                            android:background="@color/bg_gray"
+                            android:alpha="0.5"/>
+
+                    </FrameLayout>
+
+                    <LinearLayout
+                        android:id="@+id/ll_content_with_progressbar"
+                        android:layout_weight="1"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:layout_marginStart="8dp"
+                        android:layout_marginVertical="8dp">
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:id="@+id/tv_tier_name_expanded"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            style="@style/Header300"
+                            android:tag="Header300"
+                            app:fontName="@{brandTheme.themeFont.style}"
+                            android:textColor="@color/text_black"/>
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:id="@+id/tv_unlocked_on_date_expanded"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="4dp"
+                            style="@style/BodyRegular"
+                            android:tag="BodyRegular"
+                            app:fontName="@{brandTheme.themeFont.style}"
+                            android:textColor="@color/text_dark_gray"/>
+
+                    </LinearLayout>
+
+                    <FrameLayout
+                        android:id="@+id/fl_collapse_btn"
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:layout_marginTop="16dp"
+                        android:clickable="true"
+                        android:focusable="true">
+
+                        <androidx.appcompat.widget.AppCompatImageView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_marginVertical="8dp"
+                            android:layout_marginHorizontal="4dp"
+                            app:srcCompat="@drawable/ic_chevron_arrow_down"
+                            app:tint="@color/text_black"/>
+
+                    </FrameLayout>
+
+                </LinearLayout>
+
+            </com.sinaseyfi.advancedcardview.AdvancedCardView>
+
+            <com.sinaseyfi.advancedcardview.AdvancedCardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                app:background_Type="fill"
+                app:background_ColorType="solid"
+                app:background_Color="@color/bg_gray"
+                app:advLowerCorners="@{brandTheme.themeShapes.container.style}">
+                
+                <FrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="16dp"
+                        android:orientation="horizontal"
+                        android:weightSum="3"
+                        android:gravity="center">
+
+                        <LinearLayout
+                            android:visibility="visible"
+                            android:id="@+id/ll_tier_perk_scratch_card"
+                            android:layout_weight="1"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical">
+
+                            <FrameLayout
+                                android:layout_width="32dp"
+                                android:layout_height="32dp"
+                                android:layout_gravity="center_horizontal">
+
+                                <androidx.appcompat.widget.AppCompatImageView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    app:srcCompat="@drawable/scratch_card_ni"/>
+
+                            </FrameLayout>
+
+                            <androidx.appcompat.widget.AppCompatTextView
+                                android:id="@+id/tv_scratch_card_text"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="8dp"
+                                style="@style/BodySmall"
+                                android:tag="BodySmall"
+                                android:textColor="@color/text_medium_gray"
+                                android:gravity="center"
+                                android:textAlignment="center"
+                                app:fontName="@{brandTheme.themeFont.style}"/>
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:visibility="visible"
+                            android:id="@+id/ll_tier_perk_spin_wheel"
+                            android:layout_weight="1"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical">
+
+                            <FrameLayout
+                                android:layout_width="32dp"
+                                android:layout_height="32dp"
+                                android:layout_gravity="center_horizontal">
+
+                                <androidx.appcompat.widget.AppCompatImageView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    app:srcCompat="@drawable/spin_wheel_ni"/>
+
+                            </FrameLayout>
+
+                            <androidx.appcompat.widget.AppCompatTextView
+                                android:id="@+id/tv_spin_wheel_text"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="8dp"
+                                style="@style/BodySmall"
+                                android:tag="BodySmall"
+                                android:textColor="@color/text_medium_gray"
+                                android:gravity="center"
+                                android:textAlignment="center"
+                                app:fontName="@{brandTheme.themeFont.style}"/>
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:visibility="visible"
+                            android:id="@+id/ll_tier_perk_coupon"
+                            android:layout_weight="1"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical">
+
+                            <FrameLayout
+                                android:layout_width="32dp"
+                                android:layout_height="32dp"
+                                android:layout_gravity="center_horizontal">
+
+                                <androidx.appcompat.widget.AppCompatImageView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    app:srcCompat="@drawable/discount_tag_ni"/>
+
+                            </FrameLayout>
+
+                            <androidx.appcompat.widget.AppCompatTextView
+                                android:id="@+id/tv_coupon_text"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="8dp"
+                                style="@style/BodySmall"
+                                android:tag="BodySmall"
+                                android:textColor="@color/text_medium_gray"
+                                android:gravity="center"
+                                android:textAlignment="center"
+                                app:fontName="@{brandTheme.themeFont.style}"/>
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                    <View
+                        android:visibility="gone"
+                        android:id="@+id/view_disable_tier_perks_expanded"
+                        android:layout_width="match_parent"
+                        android:layout_height="104dp"
+                        android:background="@color/bg_gray"
+                        android:alpha="0.5"/>
+
+                </FrameLayout>
+
+            </com.sinaseyfi.advancedcardview.AdvancedCardView>
+
+        </LinearLayout>
+
+        <com.google.android.material.progressindicator.LinearProgressIndicator
+            android:visibility="gone"
+            android:id="@+id/progress_tier_expanded"
+            android:layout_width="match_parent"
+            android:layout_height="4dp"
+            android:layout_marginStart="84dp"
+            android:layout_marginEnd="12dp"
+            android:layout_marginTop="76dp"
+            android:layout_marginBottom="16dp"
+            android:max="100"
+            app:trackCornerRadius="8dp"
+            app:customTrackColor="@{brandThemeColors.SECONDARY_BRAND_COLOR}"
+            app:customIndicatorColor="@{brandThemeColors.PRIMARY_BRAND_COLOR}"/>
+
+    </FrameLayout>
+
+</layout>

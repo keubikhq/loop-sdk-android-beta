@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:id="@+id/outerCircle"
+        android:width="28dp"
+        android:height="28dp"
+        android:drawable="@drawable/thumb_bg_opacity_20">
+
+    </item>
+
+    <item android:id="@+id/innerCircle"
+        android:width="16dp"
+        android:height="16dp"
+        android:gravity="center"
+        android:drawable="@drawable/slider_thumb">
+    </item>
+</layer-list>

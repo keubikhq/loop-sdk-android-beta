@@ -1,0 +1,258 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+<data>
+
+    <variable
+        name="viewModel"
+        type="com.lib.loopsdk.ui.feature_survey.presentation.trivia_quiz.TriviaQuizViewModel" />
+
+    <variable
+        name="brandTheme"
+        type="com.lib.loopsdk.data.remote.dto.InitializeDto.Data.BrandTheme" />
+
+    <variable
+        name="brandThemeColors"
+        type="com.lib.loopsdk.core.util.Colors" />
+
+</data>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:theme="@style/LibraryTheme"
+    tools:context=".ui.feature_survey.presentation.trivia_quiz.TriviaQuizQuesActivity">
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/ivClose"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="38dp"
+        android:src="@drawable/ic_close"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:tint="#212121" />
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/ivInfo"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:layout_marginTop="38dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="16dp"
+        android:src="@drawable/ic_info"
+        app:colorTypeActive="1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/cvNextQues"
+        android:layout_width="180dp"
+        android:layout_height="36dp"
+        app:cardCornerRadius="40dp"
+        app:strokeColor="@color/info_blue"
+        app:strokeWidth="1dp"
+        app:cardElevation="0dp"
+        android:visibility="gone"
+        android:layout_marginTop="32dp"
+        app:cardBackgroundColor="@color/info_blue_10"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvNextQuesIn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/next_question_in_5s"
+            android:textColor="@color/text_black"
+            style="@style/BodyRegular"
+            android:tag="BodyRegular"
+            app:fontName="@{brandTheme.themeFont.style}"
+            android:layout_gravity="center"/>
+    </com.google.android.material.card.MaterialCardView>
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/cvTimeUp"
+        android:layout_width="140dp"
+        android:layout_height="36dp"
+        app:cardCornerRadius="40dp"
+        app:strokeColor="@color/error_red"
+        app:strokeWidth="1dp"
+        app:cardElevation="0dp"
+        android:visibility="gone"
+        android:layout_marginTop="32dp"
+        app:cardBackgroundColor="@color/error_red_10"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_gravity="center">
+            <androidx.appcompat.widget.AppCompatImageView
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:src="@drawable/ic_stopwatch"
+                app:tint="@color/black"/>
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvTimeUp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/time_s_up"
+            android:layout_marginStart="4dp"
+            android:textColor="@color/text_black"
+            style="@style/BodyRegular"
+            android:tag="BodyRegular"
+            app:fontName="@{brandTheme.themeFont.style}"
+            android:layout_gravity="center"/>
+        </LinearLayout>
+    </com.google.android.material.card.MaterialCardView>
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/clprogressBar"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="20dp"
+        android:visibility="visible"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+
+        <com.lib.loopsdk.core.customViews.CircularProgressView
+            android:id="@+id/progressBar"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:elevation="8dp"
+            android:scaleX="-1"
+            android:indeterminate="false" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/ivprogress"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_margin="3dp"
+            android:src="@drawable/ic_progress_bg_circular"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvTimer"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="00:00"
+            android:textColor="@color/text_black"
+            style="@style/BodyRegular"
+            android:tag="BodyRegular"
+            app:fontName="@{brandTheme.themeFont.style}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"/>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/cvQuestionCount"
+        android:layout_width="108dp"
+        android:layout_height="32dp"
+        android:layout_marginTop="54dp"
+        app:cardElevation="0dp"
+        app:cardBackgroundColor="@color/bg_gray"
+        app:cardCornerRadius="20dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ivClose">
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvQuestionNo"
+            style="@style/Header100"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:tag="Header100"
+            android:textColor="@color/text_black"
+            app:fontName="@{brandTheme.themeFont.style}" />
+
+    </com.google.android.material.card.MaterialCardView>
+    
+    <androidx.cardview.widget.CardView
+        android:layout_width="52dp"
+        android:layout_height="32dp"
+        app:cardCornerRadius="20dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="54dp"
+        android:elevation="0dp"
+        app:cardBackgroundColor="@color/error_red"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ivClose">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:layout_width="12dp"
+                android:layout_height="12dp"
+                android:src="@drawable/ic_close"
+                android:layout_gravity="center"
+                android:layout_marginStart="12dp"/>
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvWrongCount"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="0"
+                android:layout_marginStart="8dp"
+                android:textColor="@color/white"
+                android:layout_gravity="center"/>
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="52dp"
+        android:layout_height="32dp"
+        app:cardCornerRadius="20dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginTop="54dp"
+        android:elevation="0dp"
+        app:cardBackgroundColor="@color/success_green"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ivClose">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:layout_width="12dp"
+                android:layout_height="12dp"
+                android:src="@drawable/ic_tick"
+                android:layout_gravity="center"
+                android:layout_marginStart="12dp"/>
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvCorrectCount"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="0"
+                android:layout_marginStart="8dp"
+                android:textColor="@color/white"
+                android:layout_gravity="center"/>
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvTriviaQuizQue"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginBottom="20dp"
+        tools:listitem="@layout/fragment_question_single_choice"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/cvQuestionCount" />
+</androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

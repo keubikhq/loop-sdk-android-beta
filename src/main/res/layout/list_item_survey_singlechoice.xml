@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+    <data>
+        <variable
+            name="brandTheme"
+            type="com.lib.loopsdk.data.remote.dto.InitializeDto.Data.BrandTheme" />
+
+        <variable
+            name="brandThemeColors"
+            type="com.lib.loopsdk.core.util.Colors" />
+    </data>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="12dp"
+    android:id="@+id/rootView"
+    tools:theme="@style/LibraryTheme"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/cvChoiceSelected"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        app:cardElevation="0dp"
+        app:shapeParam="@{brandTheme.themeShapes.buttons.style}"
+        app:cardBgColor="@{brandThemeColors.SECONDARY_BRAND_COLOR}"
+        app:cardBorderColor="@{brandThemeColors.PRIMARY_BRAND_COLOR}"
+        app:strokeWidth="1dp"
+        android:visibility="gone"
+        app:layout_constraintTop_toTopOf="parent"/>
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/cvChoice"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        app:cardElevation="0dp"
+        app:shapeParam="@{brandTheme.themeShapes.buttons.style}"
+        app:cardBackgroundColor="@color/bg_gray"
+        android:visibility="visible"
+        app:layout_constraintTop_toTopOf="parent"/>
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tvChoice"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_gravity="center_vertical"
+        style="@style/BodyDefault"
+        android:tag="BodyDefault"
+        android:textColor="@color/text_black"
+        app:fontName="@{brandTheme.themeFont.style}"
+        android:layout_marginTop="16dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

@@ -1,0 +1,204 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+    <data>
+        <variable
+            name="brandTheme"
+            type="com.lib.loopsdk.data.remote.dto.InitializeDto.Data.BrandTheme" />
+        <variable
+            name="brandThemeColors"
+            type="com.lib.loopsdk.core.util.Colors" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_behavior="com.google.android.material.bottomsheet.BottomSheetBehavior">
+
+    <View
+        android:layout_width="match_parent"
+        android:background="@drawable/shadow_view"
+        android:layout_height="50dp"
+        android:layout_marginBottom="-35dp"
+        app:layout_constraintBottom_toTopOf="@+id/rootView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"/>
+
+    <FrameLayout
+        android:id="@+id/rootView"
+        android:elevation="@dimen/dp_16"
+        app:layout_constraintBottom_toBottomOf="parent"
+        tools:theme="@style/LibraryTheme"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/bg_white_round_top">
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="48dp"
+            android:layout_height="4dp"
+            app:cardElevation="0dp"
+            app:cardCornerRadius="100dp"
+            app:cardBackgroundColor="#D1D1D4"
+            android:layout_marginTop="12dp"
+            android:layout_gravity="top|center_horizontal"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginTop="28dp"
+            android:layout_marginHorizontal="20dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:layout_width="64dp"
+                    android:layout_height="64dp"
+                    app:srcCompat="@drawable/refer_earn"/>
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    style="@style/Header400"
+                    android:tag="Header400"
+                    app:fontName="@{brandTheme.themeFont.style}"
+                    android:textColor="@color/text_black"
+                    android:text="Invite &amp; Earn"
+                    android:layout_gravity="center_vertical"/>
+
+            </LinearLayout>
+            
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                style="@style/Header300"
+                android:tag="Header300"
+                app:fontName="@{brandTheme.themeFont.style}"
+                android:textColor="@color/text_black"
+                android:text="Enter the referral code shared with you"/>
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                style="@style/ParaDefault"
+                android:tag="ParaDefault"
+                app:fontName="@{brandTheme.themeFont.style}"
+                android:textColor="@color/text_medium_gray"
+                android:text="Referral Code"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginTop="16dp">
+
+                <androidx.appcompat.widget.AppCompatEditText
+                    android:id="@+id/et_referral_code"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    style="@style/Header400"
+                    android:tag="Header400"
+                    app:fontName="@{brandTheme.themeFont.style}"
+                    android:singleLine="true"
+                    android:maxLines="1"
+                    android:maxLength="6"
+                    android:textAllCaps="true"
+                    android:textColor="@color/text_black"
+                    android:background="@android:color/transparent"/>
+                
+                <View
+                    android:id="@+id/view_error_line"
+                    android:layout_width="match_parent"
+                    android:layout_height="2dp"
+                    android:background="@color/text_light_gray"
+                    android:layout_marginTop="12dp"/>
+
+                <LinearLayout
+                    android:visibility="gone"
+                    android:id="@+id/errorContainer"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginTop="12dp">
+
+                    <androidx.appcompat.widget.AppCompatImageView
+                        android:id="@+id/iv_error"
+                        android:layout_width="16dp"
+                        android:layout_height="16dp"
+                        app:srcCompat="@drawable/error_exclaim_circle"
+                        app:tint="@color/error_red"
+                        android:layout_gravity="center_vertical"/>
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="8dp"
+                        android:text="Invalid referral code"
+                        android:textColor="@color/error_red"
+                        style="@style/BodyDefault"
+                        android:tag="BodyDefault"
+                        app:fontName="@{brandTheme.themeFont.style}"/>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/btnJoinNow"
+                    android:layout_width="match_parent"
+                    android:layout_height="44dp"
+                    android:layout_marginTop="36dp"
+                    app:cardElevation="0dp"
+                    app:shape="@{brandTheme.themeShapes.buttons.style}"
+                    app:style="@{brandTheme.themeButtons.style}">
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Join Now"
+                        android:layout_gravity="center"
+                        style="@style/ButtonDefault"
+                        android:tag="ButtonDefault"
+                        app:fontName="@{brandTheme.themeFont.style}"
+                        app:colorIfInsideButton="@{brandTheme.themeButtons.style}"/>
+
+                </com.google.android.material.card.MaterialCardView>
+
+                <com.google.android.material.card.MaterialCardView
+                    android:visibility="gone"
+                    android:id="@+id/disableHighlight"
+                    android:layout_width="match_parent"
+                    android:layout_height="44dp"
+                    android:layout_marginTop="36dp"
+                    app:cardElevation="0dp"
+                    app:shapeParam="@{brandTheme.themeShapes.buttons.style}"
+                    app:cardBackgroundColor="@color/white"
+                    app:rippleColor="@android:color/transparent"
+                    android:alpha="0.4"
+                    android:clickable="true"
+                    android:focusable="true"/>
+
+            </FrameLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="40dp"/>
+
+        </LinearLayout>
+
+    </FrameLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

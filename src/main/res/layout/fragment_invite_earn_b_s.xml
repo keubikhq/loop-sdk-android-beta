@@ -1,0 +1,296 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+    <data>
+        <variable
+            name="brandTheme"
+            type="com.lib.loopsdk.data.remote.dto.InitializeDto.Data.BrandTheme" />
+        <variable
+            name="brandThemeColors"
+            type="com.lib.loopsdk.core.util.Colors" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_behavior="com.google.android.material.bottomsheet.BottomSheetBehavior">
+
+    <View
+        android:layout_width="match_parent"
+        android:background="@drawable/shadow_view"
+        android:layout_height="50dp"
+        android:layout_marginBottom="-35dp"
+        app:layout_constraintBottom_toTopOf="@+id/rootView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"/>
+    <FrameLayout
+        android:id="@+id/rootView"
+        android:elevation="@dimen/dp_16"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/bg_white_round_top"
+        tools:theme="@style/LibraryTheme">
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="48dp"
+            android:layout_height="4dp"
+            app:cardElevation="0dp"
+            app:cardCornerRadius="100dp"
+            app:cardBackgroundColor="#D1D1D4"
+            android:layout_marginTop="12dp"
+            android:layout_gravity="top|center_horizontal"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginTop="28dp"
+            android:layout_marginHorizontal="20dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:layout_width="64dp"
+                    android:layout_height="64dp"
+                    app:srcCompat="@drawable/refer_earn"/>
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:text="Invite &amp; Earn"
+                    style="@style/Header400"
+                    android:tag="Header400"
+                    app:fontName="@{brandTheme.themeFont.style}"
+                    android:textColor="@color/text_black"
+                    android:layout_gravity="center_vertical"/>
+
+            </LinearLayout>
+            
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:text="Every time you successfully refer a friend,"
+                style="@style/BodyRegular"
+                android:tag="BodyRegular"
+                android:textColor="@color/text_black"
+                android:gravity="center"
+                android:textAlignment="center"
+                app:fontName="@{brandTheme.themeFont.style}"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="4dp"
+                android:gravity="center">
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tv_referrer_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    style="@style/BodyRegular"
+                    android:tag="BodyRegular"
+                    android:textColor="@color/text_black"
+                    android:textAlignment="center"
+                    app:fontName="@{brandTheme.themeFont.style}"/>
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:visibility="gone"
+                    android:id="@+id/iv_points_icon_referrer"
+                    android:layout_width="17dp"
+                    android:layout_height="17dp"
+                    android:layout_marginStart="6dp"
+                    android:layout_gravity="center_vertical"
+                    app:colorTint="@{brandThemeColors.PRIMARY_BRAND_COLOR}"/>
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:visibility="gone"
+                    android:id="@+id/tv_referee_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    style="@style/BodyRegular"
+                    android:tag="BodyRegular"
+                    android:textColor="@color/text_black"
+                    android:textAlignment="center"
+                    android:layout_marginStart="6dp"
+                    app:fontName="@{brandTheme.themeFont.style}"/>
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:visibility="gone"
+                    android:id="@+id/iv_points_icon_referee"
+                    android:layout_width="17dp"
+                    android:layout_height="17dp"
+                    android:layout_marginStart="6dp"
+                    android:layout_gravity="center_vertical"
+                    app:colorTint="@{brandThemeColors.PRIMARY_BRAND_COLOR}"/>
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:visibility="gone"
+                    android:id="@+id/tv_referee_points_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    style="@style/BodyRegular"
+                    android:tag="BodyRegular"
+                    android:textColor="@color/text_black"
+                    android:textAlignment="center"
+                    android:layout_marginStart="6dp"
+                    app:fontName="@{brandTheme.themeFont.style}"/>
+
+
+            </LinearLayout>
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="copy referral code"
+                style="@style/BodyDefault"
+                android:tag="BodyDefault"
+                android:textColor="@color/text_dark_gray"
+                android:layout_marginTop="36dp"
+                android:layout_gravity="center"
+                app:fontName="@{brandTheme.themeFont.style}"/>
+            
+            <com.sinaseyfi.advancedcardview.AdvancedCardView
+                android:layout_width="match_parent"
+                android:layout_height="44dp"
+                android:layout_marginTop="16dp"
+                app:background_Type="fill_stroke"
+                app:stroke_Type="dash"
+                app:stroke_Width="1dp"
+                app:background_ColorType="solid"
+                app:stroke_ColorType="solid"
+                app:advancedCardFillColor="@{brandThemeColors.SECONDARY_BRAND_COLOR}"
+                app:advancedCardStrokeColor="@{brandThemeColors.PRIMARY_BRAND_COLOR}"
+                app:advancedCardContainerShape="@{brandTheme.themeShapes.container.style}"
+                app:stroke_GapSize="8dp"
+                app:stroke_CapType="round">
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tv_referral_code"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    style="@style/ButtonDefault"
+                    android:tag="ButtonDefault"
+                    app:fontName="@{brandTheme.themeFont.style}"
+                    app:textViewColor="@{brandThemeColors.PRIMARY_BRAND_COLOR}"/>
+
+                <FrameLayout
+                    android:id="@+id/btnCopyCode"
+                    android:layout_width="44dp"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="end">
+
+                    <androidx.appcompat.widget.AppCompatImageView
+                        android:layout_width="13dp"
+                        android:layout_height="17dp"
+                        app:srcCompat="@drawable/ic_copy"
+                        android:layout_gravity="end|center_vertical"
+                        android:layout_marginEnd="14dp"
+                        app:tintColor="@{brandThemeColors.PRIMARY_BRAND_COLOR}"/>
+
+                </FrameLayout>
+
+            </com.sinaseyfi.advancedcardview.AdvancedCardView>
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:layout_width="match_parent"
+                android:layout_height="3dp"
+                android:layout_marginTop="32dp"
+                android:layout_gravity="top"
+                app:srcCompat="@drawable/dashed_line_light_gray"/>
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                style="@style/BodyDefault"
+                android:tag="BodyDefault"
+                android:text="or share with"
+                android:textColor="@color/text_dark_gray"
+                android:layout_gravity="center"
+                app:fontName="@{brandTheme.themeFont.style}"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center"
+                android:layout_marginTop="16dp">
+
+                <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/btnShareSms"
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    app:cardElevation="0dp"
+                    app:cardCornerRadius="24dp"
+                    app:cardBgColor="@{brandThemeColors.SECONDARY_BRAND_COLOR}"
+                    android:layout_gravity="top|center_horizontal">
+
+                    <androidx.appcompat.widget.AppCompatImageView
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        app:srcCompat="@drawable/ic_share_sms"
+                        android:layout_gravity="center"
+                        app:tintColor="@{brandThemeColors.PRIMARY_BRAND_COLOR}"/>
+
+                </com.google.android.material.card.MaterialCardView>
+
+                <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/btnShareWhatsApp"
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:layout_marginStart="24dp"
+                    app:cardElevation="0dp"
+                    app:cardCornerRadius="24dp"
+                    app:cardBgColor="@{brandThemeColors.SECONDARY_BRAND_COLOR}"
+                    android:layout_gravity="top|center_horizontal">
+
+                    <androidx.appcompat.widget.AppCompatImageView
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        app:srcCompat="@drawable/ic_share_whatsapp"
+                        android:layout_gravity="center"
+                        app:tintColor="@{brandThemeColors.PRIMARY_BRAND_COLOR}"/>
+
+                </com.google.android.material.card.MaterialCardView>
+
+                <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/btnShareOther"
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:layout_marginStart="24dp"
+                    app:cardElevation="0dp"
+                    app:cardCornerRadius="24dp"
+                    app:cardBgColor="@{brandThemeColors.SECONDARY_BRAND_COLOR}"
+                    android:layout_gravity="top|center_horizontal">
+
+                    <androidx.appcompat.widget.AppCompatImageView
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        app:srcCompat="@drawable/ic_share_other"
+                        android:layout_gravity="center"
+                        app:tintColor="@{brandThemeColors.PRIMARY_BRAND_COLOR}"/>
+
+                </com.google.android.material.card.MaterialCardView>
+
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="40dp"/>
+
+        </LinearLayout>
+
+    </FrameLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

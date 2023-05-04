@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+    <data>
+        <variable
+            name="brandTheme"
+            type="com.lib.loopsdk.data.remote.dto.InitializeDto.Data.BrandTheme" />
+        <variable
+            name="brandThemeColors"
+            type="com.lib.loopsdk.core.util.Colors" />
+    </data>
+
+    <FrameLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="152dp"
+        android:layout_height="232dp"
+        android:layout_marginEnd="16dp"
+        tools:theme="@style/LibraryTheme">
+
+        <com.sinaseyfi.advancedcardview.AdvancedCardView
+            android:layout_width="match_parent"
+            android:layout_height="126dp"
+            app:cardElevation="0dp"
+            app:background_Type="fill"
+            app:background_ColorType="solid"
+            app:background_Color="@android:color/transparent"
+            app:advUpperCorners="@{brandTheme.themeShapes.container.style}">
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/iv_coupon_image"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scaleType="fitXY"/>
+
+            <com.google.android.material.card.MaterialCardView
+                android:visibility="gone"
+                android:id="@+id/matCvExpiringSoon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:layout_marginStart="8dp"
+                app:cardCornerRadius="4dp"
+                app:cardElevation="0dp"
+                app:cardBackgroundColor="@color/error_red">
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:layout_marginVertical="2dp"
+                    android:layout_marginHorizontal="4dp"
+                    android:paddingVertical="2.08dp"
+                    android:paddingHorizontal="3.33dp"
+                    app:srcCompat="@drawable/ic_stopwatch_expiring"
+                    app:tint="@color/white"/>
+
+            </com.google.android.material.card.MaterialCardView>
+
+        </com.sinaseyfi.advancedcardview.AdvancedCardView>
+
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="114dp"
+            app:cardElevation="0dp"
+            app:cardBackgroundColor="@color/bg_gray"
+            app:containerShape="@{brandTheme.themeShapes.container.style}">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:layout_marginTop="16dp"
+                android:layout_marginHorizontal="12dp">
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tv_coupon_description"
+                    android:layout_width="match_parent"
+                    android:layout_weight="1"
+                    android:layout_height="0dp"
+                    style="@style/BodyDefault"
+                    android:tag="BodyDefault"
+                    app:fontName="@{brandTheme.themeFont.style}"
+                    android:textColor="@color/text_black"
+                    android:maxLines="3"
+                    android:ellipsize="end"/>
+
+                <LinearLayout
+                    android:id="@+id/ll_value"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginTop="12dp"
+                    android:layout_marginBottom="16dp">
+
+                    <androidx.appcompat.widget.AppCompatImageView
+                        android:visibility="gone"
+                        android:id="@+id/iv_points_icon"
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:padding="1.67dp"
+                        app:colorTint="@{brandThemeColors.PRIMARY_BRAND_COLOR}"/>
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/tv_coupon_value"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        style="@style/ButtonLight"
+                        android:tag="ButtonLight"
+                        app:fontName="@{brandTheme.themeFont.style}"
+                        app:textViewColor="@{brandThemeColors.PRIMARY_BRAND_COLOR}"
+                        android:layout_marginStart="4dp"/>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </com.google.android.material.card.MaterialCardView>
+        
+        <com.google.android.material.card.MaterialCardView
+            android:visibility="gone"
+            android:id="@+id/matCvDiscount"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="102dp"
+            android:layout_marginEnd="12dp"
+            android:layout_gravity="end"
+            app:cardCornerRadius="4dp"
+            app:cardElevation="0dp"
+            app:cardBgColor="@{brandThemeColors.PRIMARY_BRAND_COLOR}">
+            
+            <androidx.appcompat.widget.AppCompatImageView
+                android:visibility="gone"
+                android:id="@+id/iv_class_icon"
+                android:layout_width="16dp"
+                android:layout_height="16dp"
+                android:layout_marginVertical="4dp"
+                android:layout_marginHorizontal="8dp"
+                app:tintColor="@{brandThemeColors.FONT_COLOR}"/>
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tv_coupon_discount"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                style="@style/BodySmallSemiBold"
+                android:tag="BodySmallSemiBold"
+                app:fontName="@{brandTheme.themeFont.style}"
+                textViewColor="@{brandThemeColors.FONT_COLOR}"
+                android:layout_marginVertical="4dp"
+                android:layout_marginHorizontal="8dp" />
+
+        </com.google.android.material.card.MaterialCardView>
+
+
+    </FrameLayout>
+
+</layout>

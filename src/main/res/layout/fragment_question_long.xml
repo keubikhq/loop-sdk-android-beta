@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+
+    <data>
+
+        <variable
+            name="brandTheme"
+            type="com.lib.loopsdk.data.remote.dto.InitializeDto.Data.BrandTheme" />
+
+        <variable
+            name="brandThemeColors"
+            type="com.lib.loopsdk.core.util.Colors" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:id="@+id/rootView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:theme="@style/LibraryTheme"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp">
+
+        <ScrollView
+            android:id="@+id/scrollView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fillViewport="true"
+            android:isScrollContainer="true"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/cvQuestionCount"
+                    android:layout_width="108dp"
+                    android:layout_height="32dp"
+                    android:layout_marginTop="16dp"
+                    app:cardElevation="0dp"
+                    app:cardBackgroundColor="@color/bg_gray"
+                    app:cardCornerRadius="20dp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/tvQuestionNo"
+                        style="@style/Header100"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:tag="Header100"
+                        android:textColor="@color/text_black"
+                        app:fontName="@{brandTheme.themeFont.style}" />
+
+                </com.google.android.material.card.MaterialCardView>
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/clQuestion"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/cvQuestionCount">
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/tvQuestion"
+                        style="@style/Header400"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:tag="Header400"
+                        android:textColor="#212121"
+                        app:fontName="@{brandTheme.themeFont.style}"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/tvDescription"
+                        style="@style/BodyDefault"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="16dp"
+                        android:tag="BodyDefault"
+                        android:textColor="@color/text_medium_gray"
+                        app:fontName="@{brandTheme.themeFont.style}"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/tvQuestion" />
+
+                    <com.google.android.material.card.MaterialCardView
+                        android:id="@+id/cvAnswer"
+                        android:layout_width="match_parent"
+                        android:layout_height="101dp"
+                        android:layout_marginTop="32dp"
+                        app:cardBackgroundColor="@color/bg_gray"
+                        app:layout_constraintTop_toBottomOf="@+id/tvDescription"
+                        app:shapeParam="@{brandTheme.themeShapes.buttons.style}">
+
+                        <EditText
+                            android:id="@+id/etAnswer"
+                            style="@style/BodyDefault"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_margin="16dp"
+                            android:background="@android:color/transparent"
+                            android:gravity="start"
+                            android:hint="Enter your answer"
+                            android:maxLines="4"
+                            android:minLines="1"
+                            android:maxLength="500"
+                            android:textColor="@color/text_black"
+                            android:textColorHint="@color/text_light_gray"
+                            android:textCursorDrawable="@null" />
+                    </com.google.android.material.card.MaterialCardView>
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/min_10_max_500_characters"
+                        android:layout_marginTop="8dp"
+                        style="@style/BodySmall"
+                        android:tag="BodySmall"
+                        android:textColor="@color/text_medium_gray"
+                        app:fontName="@{brandTheme.themeFont.style}"
+                        app:layout_constraintTop_toBottomOf="@+id/cvAnswer"
+                        app:layout_constraintEnd_toEndOf="parent"/>
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </ScrollView>
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

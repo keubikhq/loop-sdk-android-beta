@@ -1,0 +1,338 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="brandTheme"
+            type="com.lib.loopsdk.data.remote.dto.InitializeDto.Data.BrandTheme" />
+
+        <variable
+            name="brandThemeColors"
+            type="com.lib.loopsdk.core.util.Colors" />
+
+        <variable
+            name="viewModel"
+            type="com.lib.loopsdk.ui.feature_survey.presentation.survey_quiz_detail.SurveyQuizDetailViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white"
+        tools:theme="@style/LibraryTheme">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/clTopView"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginBottom="0dp"
+            android:background="@color/white"
+            android:visibility="visible"
+            app:layout_constraintBottom_toTopOf="@+id/clBottomView"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <com.lib.loopsdk.core.customViews.CustomCardView
+                android:id="@+id/flTopImage"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_marginHorizontal="20dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="16dp"
+                app:cardCornerRadius="16dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/ivSBack">
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/ivSurvayImage"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:scaleType="centerCrop"/>
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/ivShadow"
+                    android:layout_width="match_parent"
+                    android:layout_height="361dp"
+                    android:scaleType="fitXY"
+                    android:visibility="visible"
+                    android:layout_gravity="bottom"
+                    app:srcCompat="@drawable/survey_bg_shadow" />
+            </com.lib.loopsdk.core.customViews.CustomCardView>
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/ivSBack"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="20dp"
+                android:src="@drawable/ic_back_arrow"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvSurvayName"
+                style="@style/Header500"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="36dp"
+                android:layout_marginEnd="36dp"
+                android:layout_marginBottom="10dp"
+                android:gravity="start"
+                android:maxLines="1"
+                android:ellipsize="end"
+                android:tag="Header500"
+                android:textColor="@color/white"
+                app:fontName="@{brandTheme.themeFont.style}"
+                app:layout_constraintBottom_toTopOf="@id/tvSurvayDesc"
+                app:layout_constraintStart_toStartOf="parent" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvSurvayDesc"
+                style="@style/BodyDefault"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="36dp"
+                android:layout_marginEnd="40dp"
+                android:layout_marginBottom="20dp"
+                android:tag="BodyDefault"
+                android:textColor="@color/white"
+                app:fontName="@{brandTheme.themeFont.style}"
+                app:layout_constraintBottom_toTopOf="@id/llTime" />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/ivDot"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="0dp"
+                android:layout_marginEnd="40dp"
+                android:layout_marginBottom="5dp"
+                android:src="@drawable/ic_dot"
+                android:visibility="gone"
+                app:colorTypeActive="120"
+                app:layout_constraintBottom_toBottomOf="@id/tvSurvayDesc"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/tvSurvayDesc" />
+
+            <LinearLayout
+                android:id="@+id/llTime"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="36dp"
+                android:layout_marginBottom="12dp"
+                android:orientation="horizontal"
+                app:layout_constraintBottom_toTopOf="@+id/tvSurveyQues"
+                app:layout_constraintStart_toStartOf="parent">
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/ivTime"
+                    android:layout_width="16dp"
+                    android:layout_height="16dp"
+                    android:src="@drawable/ic_clock"
+                    app:colorTypeActive="4" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tvValidTill"
+                    style="@style/Header100"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginStart="8dp"
+                    android:tag="Header100"
+                    android:textAllCaps="true"
+                    android:text="@string/valid_till"
+                    android:textColor="@color/white"
+                    app:fontName="@{brandTheme.themeFont.style}" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tvDate"
+                    style="@style/BodyDefault"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginStart="8dp"
+                    android:tag="BodyDefault"
+                    android:textColor="@color/white"
+                    app:fontName="@{brandTheme.themeFont.style}" />
+            </LinearLayout>
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvSurveyQues"
+                style="@style/Header500"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="36dp"
+                android:layout_marginBottom="24dp"
+                android:tag="Header500"
+                android:textColor="@color/white"
+                app:fontName="@{brandTheme.themeFont.style}"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvQuesStatic"
+                style="@style/Header100"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:gravity="start"
+                android:tag="Header100"
+                android:text="@string/questions"
+                android:textColor="@color/white"
+                app:fontName="@{brandTheme.themeFont.style}"
+                app:layout_constraintTop_toTopOf="@+id/tvSurveyQues"
+                app:layout_constraintBottom_toBottomOf="@+id/tvSurveyQues"
+                app:layout_constraintStart_toEndOf="@+id/tvSurveyQues" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/clBottomView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent">
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvStaticText1"
+                style="@style/Header100"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginBottom="10dp"
+                android:gravity="start"
+                android:tag="Header100"
+                android:text="@string/you_will_earn"
+                android:textColor="@color/black"
+                app:fontName="@{brandTheme.themeFont.style}"
+                app:layout_constraintBottom_toTopOf="@+id/llBenefits"
+                app:layout_constraintStart_toStartOf="parent" />
+
+            <LinearLayout
+                android:id="@+id/llBenefits"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintBottom_toTopOf="@+id/btnStartSurvey">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/clBenefitPoints"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginEnd="20dp"
+                android:layout_marginBottom="50dp"
+                android:orientation="horizontal"
+                android:visibility="gone">
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/ivPoint"
+                    android:layout_width="28dp"
+                    android:layout_height="28dp"
+                    android:scaleType="fitXY"
+                    app:tintColor="@{brandThemeColors.PRIMARY_BRAND_COLOR}"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tvBenefitInfo"
+                    style="@style/Header300"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:ellipsize="end"
+                    android:maxLines="1"
+                    android:tag="Header300"
+                    android:text="@string/total_points"
+                    android:textColor="@color/black"
+                    app:fontName="@{brandTheme.themeFont.style}"
+                    app:layout_constrainedWidth="true"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/ivPoint"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <LinearLayout
+                android:id="@+id/clBenefitCoupon"
+                android:layout_width="match_parent"
+                android:layout_height="92dp"
+                android:layout_marginHorizontal="20dp"
+                android:layout_marginBottom="48dp"
+                android:visibility="gone"
+                android:orientation="vertical"
+                android:background="@drawable/ic_coupon_bg">
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tvCouponBenefit"
+                    style="@style/Header300"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="start"
+                    android:layout_marginTop="12dp"
+                    android:tag="Header300"
+                    android:layout_marginHorizontal="20dp"
+                    app:fontName="@{brandTheme.themeFont.style}"
+                    app:textViewColor="@{brandThemeColors.PRIMARY_BRAND_COLOR}" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tvBenefitDes"
+                    style="@style/BodyDefault"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="start"
+                    android:layout_marginTop="8dp"
+                    android:tag="BodyDefault"
+                    android:maxLines="2"
+                    android:ellipsize="end"
+                    android:layout_marginHorizontal="20dp"
+                    app:fontName="@{brandTheme.themeFont.style}"
+                    android:textColor="@color/text_black" />
+                </LinearLayout>
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rvMultiCoupon"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                    android:orientation="horizontal"
+                    android:visibility="gone"
+                    tools:listitem="@layout/list_item_multicoupon_benefit"
+                    android:layout_marginHorizontal="20dp"
+                    android:layout_marginBottom="48dp"/>
+            </LinearLayout>
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/btnStartSurvey"
+                android:layout_width="match_parent"
+                android:layout_height="44dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginEnd="20dp"
+                android:layout_marginBottom="40dp"
+                app:cardElevation="0dp"
+                app:shape="@{brandTheme.themeShapes.buttons.style}"
+                app:style="@{brandTheme.themeButtons.style}"
+                app:layout_constraintBottom_toBottomOf="parent">
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tvStartResume"
+                    style="@style/ButtonDefault"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/start_survey_quiz"
+                    android:tag="ButtonDefault"
+                    app:fontName="@{brandTheme.themeFont.style}"
+                    app:colorIfInsideButton="@{brandTheme.themeButtons.style}"
+                    android:layout_gravity="center"
+                    android:textColor="@color/white" />
+
+            </com.google.android.material.card.MaterialCardView>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

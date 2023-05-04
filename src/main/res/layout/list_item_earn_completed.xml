@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <variable
+            name="brandTheme"
+            type="com.lib.loopsdk.data.remote.dto.InitializeDto.Data.BrandTheme" />
+
+        <variable
+            name="brandThemeColors"
+            type="com.lib.loopsdk.core.util.Colors" />
+    </data>
+
+    <com.google.android.material.card.MaterialCardView
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        app:cardCornerRadius="12dp"
+        app:cardBackgroundColor="@color/bg_gray"
+        app:cardElevation="0dp">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/iv_event_type"
+                android:layout_margin="12dp"
+                android:layout_width="44dp"
+                android:layout_height="44dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tv_event_type"
+                app:layout_constraintTop_toTopOf="parent"
+                android:fontFamily="@font/poppins_black"
+                android:textColor="#0C0C0C"
+                android:layout_marginTop="12dp"
+                android:layout_marginStart="14dp"
+                app:layout_constraintStart_toEndOf="@id/iv_event_type"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/text_earn"
+                app:layout_constraintTop_toTopOf="parent"
+                android:fontFamily="@font/poppins_black_italic"
+                android:text="earn"
+                android:layout_marginStart="14dp"
+                app:layout_constraintStart_toEndOf="@id/iv_event_type"
+                app:layout_constraintBottom_toBottomOf="@id/iv_event_type"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/iv_coin_icon"
+                app:layout_constraintTop_toBottomOf="@id/tv_event_type"
+                app:layout_constraintStart_toEndOf="@id/text_earn"
+               android:src="@drawable/ic_coin"
+                android:layout_width="14dp"
+                android:layout_margin="6.3dp"
+                android:layout_height="14dp"
+                />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/text_no_coins"
+                app:layout_constraintTop_toTopOf="parent"
+                android:textSize="12sp"
+                android:fontFamily="@font/poppins_black_italic"
+                android:layout_marginStart="14dp"
+                app:layout_constraintStart_toEndOf="@id/iv_coin_icon"
+                app:layout_constraintBottom_toBottomOf="@id/iv_event_type"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/iv_completed_icon"
+               app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:visibility="gone"
+                android:src="@drawable/ic_completed"
+                android:layout_width="14dp"
+                android:layout_margin="15dp"
+                android:layout_height="14dp"
+                />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </com.google.android.material.card.MaterialCardView>
+</layout>

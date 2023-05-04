@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+    <data>
+        <variable
+            name="brandTheme"
+            type="com.lib.loopsdk.data.remote.dto.InitializeDto.Data.BrandTheme" />
+
+        <variable
+            name="brandThemeColors"
+            type="com.lib.loopsdk.core.util.Colors" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_behavior="android.support.design.widget.BottomSheetBehavior">
+
+    <View
+        android:layout_width="match_parent"
+        android:background="@drawable/shadow_view"
+        android:layout_height="50dp"
+        android:layout_marginBottom="-35dp"
+        app:layout_constraintBottom_toTopOf="@+id/rootView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"/>
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingBottom="40dp"
+        android:id="@+id/rootView"
+        android:elevation="@dimen/dp_16"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:background="@drawable/bg_white_round_top">
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cvSlider"
+            android:layout_width="48dp"
+            android:layout_height="4dp"
+            android:layout_marginTop="12dp"
+            app:cardBackgroundColor="@color/text_light_gray"
+            app:cardCornerRadius="100dp"
+            app:cardElevation="0dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvSurveyHeader"
+            style="@style/Header400"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="32dp"
+            android:tag="Header400"
+            android:text="@string/leave_surevy_quiz"
+            android:textColor="@color/text_black"
+            app:fontName="@{brandTheme.themeFont.style}"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/cvSlider" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvDesc"
+            style="@style/BodyDefault"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="20dp"
+            android:tag="BodyDefault"
+            android:text="@string/leave_survey_quiz_info"
+            android:textColor="@color/text_medium_gray"
+            app:fontName="@{brandTheme.themeFont.style}"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvSurveyHeader" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="44dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="32dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginBottom="40dp"
+            android:orientation="horizontal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvDesc">
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/btnLeave"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginEnd="16dp"
+                android:layout_weight="1"
+                app:cardElevation="0dp"
+                app:shapeParam="@{brandTheme.themeShapes.buttons.style}"
+                app:cardBgColor="@{brandThemeColors.PRIMARY_BRAND_COLOR}">
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    style="@style/ButtonDefault"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:tag="ButtonDefault"
+                    android:text="@string/leave"
+                    app:fontName="@{brandTheme.themeFont.style}"
+                    app:textViewColor="@{brandThemeColors.FONT_COLOR}" />
+
+            </com.google.android.material.card.MaterialCardView>
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/btnCancel"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                app:cardElevation="0dp"
+                app:cardBgColor="@{brandThemeColors.SECONDARY_BRAND_COLOR}"
+                app:shapeParam="@{brandTheme.themeShapes.buttons.style}">
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    style="@style/ButtonDefault"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:tag="ButtonDefault"
+                    android:text="@string/cancel"
+                    app:fontName="@{brandTheme.themeFont.style}"
+                    app:textViewColor="@{brandThemeColors.PRIMARY_BRAND_COLOR}" />
+
+            </com.google.android.material.card.MaterialCardView>
+
+        </LinearLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

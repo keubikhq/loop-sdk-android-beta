@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+
+    <data>
+        <import type="android.view.View"/>
+        <variable
+            name="brandTheme"
+            type="com.lib.loopsdk.data.remote.dto.InitializeDto.Data.BrandTheme" />
+        <variable
+            name="brandThemeColors"
+            type="com.lib.loopsdk.core.util.Colors" />
+        <variable
+            name="init"
+            type="com.lib.loopsdk.data.remote.dto.InitializeDto.Data" />
+    </data>
+
+    <FrameLayout
+        android:alpha="0"
+        android:translationY="10dp"
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:background="@color/white"
+        tools:theme="@style/LibraryTheme"
+        tools:context=".ui.feature_tier_details_points_wallet.presentation.PointsWalletFragment">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="36dp"
+                android:layout_marginHorizontal="20dp"/>
+
+            <com.google.android.material.card.MaterialCardView
+                android:visibility="gone"
+                android:id="@+id/crdv_note"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                android:layout_marginHorizontal="20dp"
+                app:cardElevation="0dp"
+                app:containerShape="@{brandTheme.themeShapes.container.style}"
+                app:cardBackgroundColor="@color/bg_gray">
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tv_note_text"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginVertical="8dp"
+                    android:layout_marginHorizontal="16dp"
+                    style="@style/BodySmall"
+                    android:tag="BodySmall"
+                    app:fontName="@{brandTheme.themeFont.style}"
+                    android:textColor="@color/text_dark_gray"/>
+
+            </com.google.android.material.card.MaterialCardView>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rv_points_wallet"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="20dp"
+                android:orientation="vertical"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                tools:listitem="@layout/list_item_points_wallet"/>
+
+        </LinearLayout>
+
+        <FrameLayout
+            android:visibility="gone"
+            android:id="@+id/nothingFoundContainer"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/white"
+            android:clickable="true"
+            android:focusable="true">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginTop="148dp"
+                android:layout_gravity="center_horizontal"
+                android:gravity="center">
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:layout_width="180dp"
+                    android:layout_height="180dp"
+                    app:srcCompat="@drawable/ic_wallet_big"/>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_marginTop="36dp"
+                    android:gravity="center">
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Uh-oh! It’s Empty"
+                        android:textColor="@color/text_black"
+                        android:gravity="center"
+                        android:textAlignment="center"
+                        style="@style/Header300"
+                        android:tag="Header300"
+                        app:fontName="@{brandTheme.themeFont.style}"/>
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:text="@{`Looks like you haven’t earned or used any `+ init.pointsIdentifier.pointsLabelPlural.toLowerCase()}"
+                        android:textColor="@color/text_medium_gray"
+                        android:gravity="center"
+                        android:textAlignment="center"
+                        style="@style/BodyDefault"
+                        android:tag="BodyDefault"
+                        app:fontName="@{brandTheme.themeFont.style}"/>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <com.google.android.material.card.MaterialCardView
+                android:visibility="gone"
+                android:id="@+id/btnEarnPoints"
+                android:layout_width="match_parent"
+                android:layout_height="44dp"
+                android:layout_gravity="bottom"
+                android:layout_marginBottom="40dp"
+                android:layout_marginHorizontal="20dp"
+                app:cardElevation="0dp"
+                app:shapeParam="@{brandTheme.themeShapes.buttons.style}"
+                app:cardBgColor="@{brandThemeColors.SECONDARY_BRAND_COLOR}">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginVertical="12dp">
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:layout_weight="1"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:text="@{`Make an online purchase to earn ` + init.pointsIdentifier.pointsLabelPlural.toLowerCase()}"
+                        android:textColor="@color/text_black"
+                        style="@style/ButtonDefault"
+                        android:tag="ButtonDefault"
+                        app:fontName="@{brandTheme.themeFont.style}"
+                        app:textViewColor="@{brandThemeColors.PRIMARY_BRAND_COLOR}"/>
+
+                    <androidx.appcompat.widget.AppCompatImageView
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:paddingStart="8dp"
+                        android:paddingEnd="7dp"
+                        android:paddingVertical="4dp"
+                        android:layout_marginStart="8dp"
+                        android:layout_marginEnd="16dp"
+                        android:layout_gravity="center_vertical"
+                        app:srcCompat="@drawable/ic_chevron_arrow_right_forward"
+                        app:tintColor="@{brandThemeColors.PRIMARY_BRAND_COLOR}"/>
+
+                </LinearLayout>
+
+            </com.google.android.material.card.MaterialCardView>
+
+        </FrameLayout>
+
+    </FrameLayout>
+
+</layout>

@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+
+    <data>
+        <variable
+            name="brandTheme"
+            type="com.lib.loopsdk.data.remote.dto.InitializeDto.Data.BrandTheme" />
+        <variable
+            name="brandThemeColors"
+            type="com.lib.loopsdk.core.util.Colors" />
+    </data>
+
+    <com.google.android.material.card.MaterialCardView
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:minHeight="68dp"
+        android:layout_marginBottom="16dp"
+        app:cardElevation="0dp"
+        app:containerShape="@{brandTheme.themeShapes.container.style}"
+        app:cardBackgroundColor="@color/bg_gray"
+        tools:theme="@style/LibraryTheme">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_margin="12dp">
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/iv_transaction_icon"
+                android:layout_width="44dp"
+                android:layout_height="44dp"/>
+
+            <LinearLayout
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginStart="8dp">
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tv_reason"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    style="@style/Header200"
+                    android:tag="Header200"
+                    app:fontName="@{brandTheme.themeFont.style}"
+                    android:textColor="@color/text_black"/>
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tv_date"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    style="@style/BodyDefault"
+                    android:tag="BodyDefault"
+                    app:fontName="@{brandTheme.themeFont.style}"
+                    android:textColor="@color/text_black"/>
+
+            </LinearLayout>
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tv_entry"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                style="@style/Header300"
+                android:tag="Header300"
+                app:fontName="@{brandTheme.themeFont.style}"
+                android:textColor="@color/success_green"
+                android:layout_gravity="center_vertical"/>
+
+        </LinearLayout>
+
+    </com.google.android.material.card.MaterialCardView>
+
+</layout>

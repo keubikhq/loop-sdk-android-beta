@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="brandTheme"
+            type="com.lib.loopsdk.data.remote.dto.InitializeDto.Data.BrandTheme" />
+
+        <variable
+            name="brandThemeColors"
+            type="com.lib.loopsdk.core.util.Colors" />
+    </data>
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/clListAvailable"
+        android:layout_width="match_parent"
+        android:layout_height="68dp"
+        android:layout_marginHorizontal="20dp"
+        android:layout_marginTop="@dimen/dp_16"
+        app:cardBackgroundColor="@color/bg_gray"
+        app:cardElevation="0dp"
+        app:containerShape="@{brandTheme.themeShapes.container.style}"
+        tools:theme="@style/LibraryTheme">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/iv_event_type"
+                android:layout_width="44dp"
+                android:layout_height="44dp"
+                android:layout_margin="12dp"
+                android:padding="6dp"
+                android:scaleType="center"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tv_event_type"
+                style="@style/Header200"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="6dp"
+                android:layout_marginTop="12dp"
+                android:tag="Header200"
+                android:textColor="@color/text_black"
+                app:fontName="@{brandTheme.themeFont.style}"
+                app:layout_constraintStart_toEndOf="@id/iv_event_type"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/text_earn"
+                style="@style/BodyDefault"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:tag="BodyDefault"
+                android:text="earn"
+                android:textColor="@color/text_dark_gray"
+                app:fontName="@{brandTheme.themeFont.style}"
+                app:layout_constraintBottom_toBottomOf="@id/iv_event_type"
+                app:layout_constraintStart_toStartOf="@id/tv_event_type" />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/iv_coin_icon"
+                android:layout_width="16dp"
+                android:layout_height="16dp"
+                android:layout_marginHorizontal="3.5dp"
+                android:padding="1.33dp"
+                android:layout_marginBottom="4.2dp"
+                app:colorTint="@{brandThemeColors.PRIMARY_BRAND_COLOR}"
+                app:layout_constraintBottom_toBottomOf="@id/text_earn"
+                app:layout_constraintStart_toEndOf="@id/text_earn" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/text_no_coins"
+                style="@style/BodyDefault"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:tag="BodyDefault"
+                android:layout_marginStart="3.5dp"
+                android:textColor="@color/text_dark_gray"
+                app:fontName="@{brandTheme.themeFont.style}"
+                app:layout_constraintBottom_toBottomOf="@id/text_earn"
+                app:layout_constraintStart_toEndOf="@id/iv_coin_icon"
+                app:layout_constraintTop_toTopOf="@id/text_earn" />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/iv_completed_icon"
+                android:layout_width="14dp"
+                android:layout_height="14dp"
+                android:layout_marginBottom="1.5dp"
+                android:layout_marginEnd="15dp"
+                android:src="@drawable/ic_completed"
+                android:visibility="gone"
+                app:layout_constraintBottom_toBottomOf="@id/text_earn"
+                app:layout_constraintEnd_toEndOf="parent" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </com.google.android.material.card.MaterialCardView>
+
+</layout>

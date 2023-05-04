@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!--Brand/Primary Colour (Interchangeable)-->
+    <color name="brand_color_full_opacity">#EF6351</color>
+    <color name="brand_color_low_opacity">#1AEF6351</color>
+    <color name="brand_color_airbnb_full_opacity">#EB4C60</color>
+    <color name="brand_color_airbnb_low_opacity">#1AEB4C60</color>
+
+    <!--Neutral & Text Colour-->
+    <color name="white">#FFFFFF</color>
+    <color name="white_80">#CCFFFFFF</color>
+    <color name="black">#000000</color>
+    <color name="text_black">#0C0C0C</color>
+    <color name="bg_gray">#F7F8FA</color>
+    <color name="text_dark_gray">#555150</color>
+    <color name="text_medium_gray">#716F6F</color>
+    <color name="text_light_gray">#D1D1D4</color>
+    <color name="tab_light_gray">#b8b7b7</color>
+
+
+    <!--System Colour-->
+    <color name="info_blue">#4C69FF</color>
+    <color name="success_green">#39AC67</color>
+    <color name="error_red">#F04848</color>
+    <color name="success_green_10">#1A39AC67</color>
+    <color name="error_red_10">#1AF04848</color>
+    <color name="info_blue_10">#1A4C69FF</color>
+
+    <!--Scratch Cards Colours-->
+    <color name="sc_purple">#906CE8</color>
+    <color name="sc_yellow">#FAD364</color>
+    <color name="sc_blue">#68D0F7</color>
+    <color name="sc_lime">#CFDF47</color>
+    <color name="sc_red">#EE6588</color>
+
+</resources>

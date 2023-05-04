@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+
+    <data>
+        <variable
+            name="brandTheme"
+            type="com.lib.loopsdk.data.remote.dto.InitializeDto.Data.BrandTheme" />
+        <variable
+            name="brandThemeColors"
+            type="com.lib.loopsdk.core.util.Colors" />
+    </data>
+
+    <FrameLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white"
+        tools:theme="@style/LibraryTheme"
+        tools:context=".ui.feature_tier_details_points_wallet.presentation.TierDetailsPointsWalletActivity">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:translationY="10dp"
+                android:alpha="0"
+                android:id="@+id/ll_header"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="20dp"
+                android:layout_marginHorizontal="20dp">
+
+                <FrameLayout
+                    android:id="@+id/btnBack"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:clickable="true"
+                    android:focusable="true">
+
+                    <androidx.appcompat.widget.AppCompatImageView
+                        android:layout_width="9dp"
+                        android:layout_height="16dp"
+                        android:layout_gravity="center"
+                        app:srcCompat="@drawable/ic_chevron_arrow_left_back"
+                        app:tint="@color/text_black"/>
+
+                </FrameLayout>
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tv_title"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="12dp"
+                    android:text="Scratch Card"
+                    style="@style/Header300"
+                    android:tag="Header300"
+                    app:fontName="@{brandTheme.themeFont.style}"
+                    android:textColor="@color/text_black"
+                    android:layout_gravity="center_vertical"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:alpha="0"
+                android:translationY="10dp"
+                android:id="@+id/ll_tlContainer"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginHorizontal="20dp"
+                android:layout_marginTop="36dp">
+
+                <com.google.android.material.tabs.TabLayout
+                    android:id="@+id/tl_main"
+                    android:layout_weight="1"
+                    android:layout_width="0dp"
+                    android:layout_height="32dp"
+                    app:tabIndicatorFullWidth="false"
+                    app:tabIndicatorHeight="2dp"
+                    app:tabMode="scrollable"
+                    app:tabSelectedTextViewColor="@{brandThemeColors.PRIMARY_BRAND_COLOR}"
+                    app:tabTextColor="@color/text_medium_gray"
+                    app:tabTextAppearance="@style/TabHeader300" />
+
+                <com.google.android.material.card.MaterialCardView
+                    android:visibility="gone"
+                    android:id="@+id/btnPointsWallet"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    app:cardElevation="0dp"
+                    app:shape="@{brandTheme.themeShapes.buttons.style}"
+                    app:style="@{brandTheme.themeButtons.style}">
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:layout_marginHorizontal="12dp"
+                        android:layout_marginVertical="4dp">
+
+                        <androidx.appcompat.widget.AppCompatImageView
+                            android:layout_width="24dp"
+                            android:layout_height="24dp"
+                            android:padding="2dp"
+                            app:styleIfInsideButton="@{brandTheme.themeButtons.style}"/>
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:id="@+id/tv_total_points"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="4dp"
+                            style="@style/Header300"
+                            android:tag="Header300"
+                            android:maxLines="1"
+                            android:singleLine="true"
+                            app:fontName="@{brandTheme.themeFont.style}"
+                            app:colorIfInsideButton="@{brandTheme.themeButtons.style}"/>
+
+                    </LinearLayout>
+
+                </com.google.android.material.card.MaterialCardView>
+
+            </LinearLayout>
+
+            <androidx.viewpager.widget.ViewPager
+                android:id="@+id/vp_main"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+
+        </LinearLayout>
+
+    </FrameLayout>
+
+</layout>

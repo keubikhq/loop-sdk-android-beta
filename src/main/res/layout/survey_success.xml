@@ -1,0 +1,345 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="brandTheme"
+            type="com.lib.loopsdk.data.remote.dto.InitializeDto.Data.BrandTheme" />
+
+        <variable
+            name="brandThemeColors"
+            type="com.lib.loopsdk.core.util.Colors" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#CCFFFFFF"
+        tools:theme="@style/LibraryTheme">
+
+        <com.airbnb.lottie.LottieAnimationView
+            android:id="@+id/successAnimation"
+            android:layout_width="match_parent"
+            android:layout_height="400dp"
+            android:visibility="gone"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:lottie_autoPlay="true"
+            app:lottie_rawRes="@raw/success_confetti"
+            app:lottie_loop="false" />
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/cvBenefit"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="52dp"
+            app:containerShape="@{brandTheme.themeShapes.container.style}"
+            app:cardBgColor="@{brandThemeColors.PRIMARY_BRAND_COLOR}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:paddingBottom="24dp">
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/ivClose"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:layout_marginTop="12dp"
+                    android:layout_marginEnd="12dp"
+                    android:src="@drawable/ic_close"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:tintColor="@{brandThemeColors.FONT_COLOR}" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tvCongrats"
+                    style="@style/Header400"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:tag="Header400"
+                    android:text="@string/congratulations"
+                    app:fontName="@{brandTheme.themeFont.style}"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/ivClose"
+                    app:textViewColor="@{brandThemeColors.FONT_COLOR}" />
+
+                <LinearLayout
+                    android:id="@+id/llPointsBenefit"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginBottom="56dp"
+                    android:orientation="vertical"
+                    android:visibility="gone"
+                    app:layout_constraintBottom_toTopOf="@+id/cvViewBenefit"
+                    app:layout_constraintTop_toBottomOf="@+id/tvCongrats">
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/tvYouWonPoints"
+                        style="@style/Header200"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:gravity="center_horizontal"
+                        android:tag="Header200"
+                        android:text="@string/you_won"
+                        android:visibility="visible"
+                        app:fontName="@{brandTheme.themeFont.style}"
+                        app:textViewColor="@{brandThemeColors.FONT_COLOR}" />
+
+                    <androidx.appcompat.widget.AppCompatImageView
+                        android:id="@+id/ivPoints"
+                        android:layout_width="120dp"
+                        android:layout_height="108dp"
+                        android:layout_gravity="center"
+                        android:layout_marginTop="36dp"
+                        android:visibility="visible"
+                        app:styleIfInsideButton="@{brandTheme.themeButtons.style}"/>
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/tvPointsEarned"
+                        style="@style/Header400"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginTop="32dp"
+                        android:tag="Header400"
+                        android:text="@string/earned_points"
+                        android:visibility="visible"
+                        app:fontName="@{brandTheme.themeFont.style}"
+                        app:textViewColor="@{brandThemeColors.FONT_COLOR}" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/llCouponBenefit"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="40dp"
+                    android:orientation="vertical"
+                    android:visibility="gone"
+                    app:layout_constraintBottom_toTopOf="@+id/cvViewBenefit"
+                    app:layout_constraintTop_toBottomOf="@+id/tvCongrats">
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/tvYouWonCoupon"
+                        style="@style/Header100"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginTop="8dp"
+                        android:tag="Header100"
+                        android:text="@string/you_won_a_coupon"
+                        app:fontName="@{brandTheme.themeFont.style}"
+                        app:textViewColor="@{brandThemeColors.FONT_COLOR}" />
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:id="@+id/clCouponDetailFeatured"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="66dp"
+                        android:layout_marginTop="32dp"
+                        android:orientation="vertical"
+                        android:visibility="gone">
+
+                        <com.sinaseyfi.advancedcardview.AdvancedCardView
+                            android:id="@+id/cvCouponImage"
+                            android:layout_width="match_parent"
+                            android:layout_height="126dp"
+                            app:cardElevation="0dp"
+                            app:background_Type="fill"
+                            app:background_ColorType="solid"
+                            app:background_Color="@android:color/transparent"
+                            app:advUpperCorners="@{brandTheme.themeShapes.container.style}"
+                            app:layout_constraintTop_toTopOf="parent">
+
+                            <androidx.appcompat.widget.AppCompatImageView
+                                android:id="@+id/ivCouponImage"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:scaleType="fitXY" />
+
+                        </com.sinaseyfi.advancedcardview.AdvancedCardView>
+
+
+
+                        <com.google.android.material.card.MaterialCardView
+                            android:id="@+id/cvCouponInfo"
+                            android:layout_width="match_parent"
+                            android:layout_height="86dp"
+                            app:cardElevation="0dp"
+                            android:layout_marginTop="-12dp"
+                            app:cardBackgroundColor="@color/bg_gray"
+                            app:containerShape="@{brandTheme.themeShapes.container.style}"
+                            app:layout_constraintTop_toBottomOf="@+id/cvCouponImage">
+
+                                <androidx.appcompat.widget.AppCompatTextView
+                                    android:id="@+id/tvCouponDesc"
+                                    style="@style/BodyDefault"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginHorizontal="12dp"
+                                    android:layout_marginTop="16dp"
+                                    android:ellipsize="end"
+                                    android:maxLines="3"
+                                    android:layout_weight="1"
+                                    android:tag="BodyDefault"
+                                    android:textColor="@color/text_black"
+                                    android:visibility="visible"
+                                    app:fontName="@{brandTheme.themeFont.style}" />
+
+
+                        </com.google.android.material.card.MaterialCardView>
+
+                        <com.google.android.material.card.MaterialCardView
+                            android:layout_width="44dp"
+                            android:layout_height="24dp"
+                            app:cardElevation="0dp"
+                            android:layout_marginTop="102dp"
+                            android:layout_marginEnd="12dp"
+                            app:cardCornerRadius="4dp"
+                            app:cardBgColor="@{brandThemeColors.PRIMARY_BRAND_COLOR}"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent">
+
+                            <androidx.appcompat.widget.AppCompatTextView
+                                android:id="@+id/tvClassification"
+                                style="@style/BodySmallSemiBold"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:gravity="center"
+                                android:tag="BodySmallSemiBold"
+                                android:visibility="gone"
+                                app:fontName="@{brandTheme.themeFont.style}"
+                                app:textViewColor="@{brandThemeColors.FONT_COLOR}" />
+
+                            <androidx.appcompat.widget.AppCompatImageView
+                                android:id="@+id/ivClassification"
+                                android:layout_width="16dp"
+                                android:layout_height="16dp"
+                                android:layout_gravity="center"
+                                android:layout_marginTop="1dp"
+                                android:src="@drawable/ic_point"
+                                app:tintColor="@{brandThemeColors.FONT_COLOR}" />
+
+                        </com.google.android.material.card.MaterialCardView>
+
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+                    <LinearLayout
+                        android:id="@+id/llCouponBenefitNonFeatured"
+                        android:layout_width="match_parent"
+                        android:layout_height="92dp"
+                        android:layout_marginHorizontal="24dp"
+                        android:layout_marginTop="32dp"
+                        android:orientation="vertical"
+                        android:visibility="gone"
+                        android:backgroundTint="@color/white"
+                        android:background="@drawable/ic_coupon_bg">
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:id="@+id/tvBenefitInfo"
+                            style="@style/Header300"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_marginTop="12dp"
+                            android:tag="Header300"
+                            app:fontName="@{brandTheme.themeFont.style}"
+                            app:textViewColor="@{brandThemeColors.PRIMARY_BRAND_COLOR}" />
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:id="@+id/tvBenefitDes"
+                            style="@style/BodyDefault"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:layout_marginTop="8dp"
+                            android:tag="BodyDefault"
+                            android:layout_marginHorizontal="20dp"
+                            android:maxLines="2"
+                            android:ellipsize="end"
+                            app:fontName="@{brandTheme.themeFont.style}"
+                            android:textColor="@color/text_black" />
+                    </LinearLayout>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/llMsgBenefit"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="16dp"
+                    android:orientation="vertical"
+                    android:visibility="gone"
+                    app:layout_constraintBottom_toTopOf="@+id/cvViewBenefit"
+                    app:layout_constraintTop_toBottomOf="@+id/tvCongrats">
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/tvForYou"
+                        style="@style/Header100"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginTop="8dp"
+                        android:tag="Header100"
+                        android:text="for you"
+                        app:fontName="@{brandTheme.themeFont.style}"
+                        app:textViewColor="@{brandThemeColors.FONT_COLOR}" />
+
+                    <androidx.appcompat.widget.AppCompatImageView
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:layout_marginTop="24dp"
+                        android:layout_gravity="center"
+                        app:tintColor="@{brandThemeColors.FONT_COLOR}"
+                        android:src="@drawable/ic_message" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/tvMessage"
+                        style="@style/BodyDefault"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginTop="12dp"
+                        android:tag="BodyDefault"
+                        android:layout_marginHorizontal="24dp"
+                        app:fontName="@{brandTheme.themeFont.style}"
+                        app:textViewColor="@{brandThemeColors.FONT_COLOR}" />
+                </LinearLayout>
+
+
+                <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/cvViewBenefit"
+                    android:layout_width="match_parent"
+                    android:layout_height="44dp"
+                    app:cardElevation="0dp"
+                    android:visibility="visible"
+                    app:shapeParam="@{brandTheme.themeShapes.buttons.style}"
+                    app:colorOnlyForViewBenefit="@{brandTheme.themeButtons.style}"
+                    app:cardBackgroundColor="@color/white"
+                    android:layout_marginHorizontal="24dp"
+                    app:layout_constraintBottom_toBottomOf="parent">
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        style="@style/ButtonDefault"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:tag="ButtonDefault"
+                        android:text="@string/view"
+                        app:fontName="@{brandTheme.themeFont.style}"
+                        app:textColorIfInsideViewBenefit="@{brandTheme.themeButtons.style}"/>
+                </com.google.android.material.card.MaterialCardView>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <array name="spin_background_3" >
+        <item>#EE6588</item>
+        <item>#CFDF47</item>
+        <item>#68D0F7</item>
+    </array>
+
+    <array name="spin_background_4" >
+        <item>#EE6588</item>
+        <item>#CFDF47</item>
+        <item>#906CE8</item>
+        <item>#FAD364</item>
+    </array>
+
+    <array name="spin_background_5" >
+        <item>#EE6588</item>
+        <item>#68D0F7</item>
+        <item>#CFDF47</item>
+        <item>#906CE8</item>
+        <item>#FAD364</item>
+    </array>
+
+    <array name="spin_background_6">
+        <item>#F87F6C</item>
+        <item>#906CE8</item>
+        <item>#FAD364</item>
+        <item>#68D0F7</item>
+        <item>#EE6588</item>
+        <item>#CFDF47</item>
+
+    </array>
+
+    <array name="spin_background_7" >
+        <item>#F87F6C</item>
+        <item>#906CE8</item>
+        <item>#68D0F7</item>
+        <item>#FAD364</item>
+        <item>#68AAF7</item>
+        <item>#EE6588</item>
+        <item>#CFDF47</item>
+    </array>
+
+</resources>

@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:tools="http://schemas.android.com/tools">
+    <data>
+
+        <variable
+            name="brandTheme"
+            type="com.lib.loopsdk.data.remote.dto.InitializeDto.Data.BrandTheme" />
+
+        <variable
+            name="brandThemeColors"
+            type="com.lib.loopsdk.core.util.Colors" />
+    </data>
+
+<LinearLayout
+    android:layout_width="320dp"
+    android:layout_height="92dp"
+    tools:theme="@style/LibraryTheme"
+    android:orientation="vertical"
+    android:layout_marginEnd="16dp"
+    android:background="@drawable/ic_coupon_bg"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tvCouponBenefit"
+        style="@style/Header300"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="start"
+        android:layout_marginTop="12dp"
+        android:tag="Header300"
+        android:layout_marginHorizontal="20dp"
+        app:fontName="@{brandTheme.themeFont.style}"
+        app:textViewColor="@{brandThemeColors.PRIMARY_BRAND_COLOR}" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tvBenefitDes"
+        style="@style/BodyDefault"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="start"
+        android:layout_marginTop="8dp"
+        android:tag="BodyDefault"
+        android:maxLines="2"
+        android:ellipsize="end"
+        android:layout_marginHorizontal="20dp"
+        app:fontName="@{brandTheme.themeFont.style}"
+        android:textColor="@color/text_black" />
+</LinearLayout>
+</layout>

@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+
+    <data>
+        <variable
+            name="brandTheme"
+            type="com.lib.loopsdk.data.remote.dto.InitializeDto.Data.BrandTheme" />
+        <variable
+            name="brandThemeColors"
+            type="com.lib.loopsdk.core.util.Colors" />
+    </data>
+
+    <RelativeLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <FrameLayout
+            android:id="@+id/flImageFrame"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_above="@id/tv_slide_text"
+            android:layout_marginHorizontal="16dp"
+            android:layout_marginTop="36dp"
+            android:layout_marginBottom="32dp">
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/iv_slider_photo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center" />
+
+        </FrameLayout>
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_slide_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="16dp"
+            style="@style/Header400"
+            android:tag="Header400"
+            app:fontName="@{brandTheme.themeFont.style}"
+            android:gravity="center"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="76dp"
+            android:textColor="@color/text_black" />
+
+    </RelativeLayout>
+
+</layout>

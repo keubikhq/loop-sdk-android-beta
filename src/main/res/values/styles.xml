@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="LibraryTheme" parent="Theme.MaterialComponents.Light.NoActionBar">
+        <item name="colorPrimary">@color/brand_color_full_opacity</item>
+        <item name="colorPrimaryDark">@color/brand_color_full_opacity</item>
+        <item name="colorAccent">@color/brand_color_full_opacity</item>
+        <item name="android:statusBarColor">@color/white</item>
+        <item name="android:windowLightStatusBar">true</item>
+    </style>
+
+    <style name="Header900" parent="Widget.AppCompat.TextView">
+        <item name="android:textSize">48dp</item>
+        <item name="android:lineSpacingExtra">4dp</item>
+    </style>
+
+    <style name="Header800" parent="Widget.AppCompat.TextView">
+        <item name="android:textSize">40dp</item>
+        <item name="android:lineSpacingExtra">4dp</item>
+    </style>
+
+    <style name="Header700" parent="Widget.AppCompat.TextView">
+        <item name="android:textSize">32dp</item>
+        <item name="android:lineSpacingExtra">4dp</item>
+    </style>
+
+    <style name="Header600" parent="Widget.AppCompat.TextView">
+        <item name="android:textSize">28dp</item>
+        <item name="android:lineSpacingExtra">2dp</item>
+    </style>
+
+    <style name="Header500" parent="Widget.AppCompat.TextView">
+        <item name="android:textSize">24dp</item>
+        <item name="android:lineSpacingExtra">2dp</item>
+    </style>
+
+    <style name="Header400" parent="Widget.AppCompat.TextView">
+        <item name="android:textSize">20sp</item>
+        <item name="android:lineSpacingExtra">2dp</item>
+    </style>
+
+    <style name="Header300" parent="Widget.AppCompat.TextView">
+        <item name="android:textSize">16dp</item>
+        <item name="android:lineSpacingExtra">2dp</item>
+    </style>
+
+    <style name="Header200" parent="Widget.AppCompat.TextView">
+        <item name="android:textSize">14dp</item>
+        <item name="android:lineSpacingExtra">3dp</item>
+    </style>
+
+    <style name="Header100" parent="Widget.AppCompat.TextView">
+        <item name="android:textSize">12dp</item>
+        <item name="android:lineSpacingExtra">2dp</item>
+    </style>
+
+    <style name="BodyLarge" parent="Widget.AppCompat.TextView">
+        <item name="android:textSize">16dp</item>
+        <item name="android:lineSpacingExtra">2dp</item>
+    </style>
+
+    <style name="BodyRegular" parent="Widget.AppCompat.TextView">
+        <item name="android:textSize">14dp</item>
+        <item name="android:lineSpacingExtra">3dp</item>
+    </style>
+
+    <style name="BodyDefault" parent="Widget.AppCompat.TextView">
+        <item name="android:textSize">12dp</item>
+        <item name="android:lineSpacingExtra">-0.5dp</item>
+    </style>
+
+    <style name="BodySmall" parent="Widget.AppCompat.TextView">
+        <item name="android:textSize">10dp</item>
+        <item name="android:lineSpacingExtra">1dp</item>
+    </style>
+
+    <style name="BodySmallSemiBold" parent="Widget.AppCompat.TextView">
+        <item name="android:textSize">10dp</item>
+        <item name="android:lineSpacingExtra">1dp</item>
+    </style>
+
+    <style name="ParaDefault" parent="Widget.AppCompat.TextView">
+        <item name="android:textSize">14dp</item>
+        <item name="android:lineSpacingExtra">5dp</item>
+    </style>
+
+    <style name="ButtonLarge" parent="Widget.AppCompat.TextView">
+        <item name="android:textSize">20dp</item>
+        <item name="android:lineSpacingExtra">4dp</item>
+    </style>
+
+    <style name="ButtonDefault" parent="Widget.AppCompat.TextView">
+        <item name="android:textSize">14dp</item>
+        <item name="android:lineSpacingExtra">3dp</item>
+    </style>
+
+    <style name="ButtonLight" parent="Widget.AppCompat.TextView">
+        <item name="android:textSize">14dp</item>
+        <item name="android:lineSpacingExtra">3dp</item>
+    </style>
+
+    <style name="InputBottomSheetDialog" parent="Theme.Design.Light.BottomSheetDialog">
+        <!-- <item name="bottomSheetStyle">@style/bottomSheetStyleFloating</item>-->
+        <item name="android:background">@android:color/transparent</item>
+        <item name="android:colorBackground">@color/black</item>
+        <item name="android:windowIsFloating">false</item>
+        <item name="android:statusBarColor">@android:color/transparent</item>
+        <item name="android:windowSoftInputMode">adjustResize|stateVisible</item>
+    </style>
+
+
+    <style name="TabHeader300" parent="Widget.AppCompat.TextView">
+        <item name="android:textSize">16dp</item>
+        <item name="fontFamily">@font/poppins_medium</item>
+        <item name="android:lineSpacingExtra">2dp</item>
+    </style>
+
+    <style name="Theme.AppCompat.Light.NoActionBar.FullScreen" parent="@style/Theme.AppCompat.Light.NoActionBar">
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:statusBarColor">@android:color/transparent</item>
+        <item name="android:windowActionBar">false</item>
+        <item name="android:windowFullscreen">false</item>
+        <item name="android:windowContentOverlay">@null</item>
+        <item name="android:windowBackground">@android:color/transparent</item>
+    </style>
+    <style name="BottomSheetDialog" parent="Theme.Design.Light.BottomSheetDialog">
+        <item name="android:statusBarColor">@color/white</item>
+        <item name="bottomSheetStyle">@style/BottomSheetModalStyle</item>
+        <item name="android:windowIsFloating">false</item>
+    </style>
+
+    <style name="BottomSheetModalStyle" parent="Widget.Design.BottomSheet.Modal">
+        <item name="android:background">@drawable/bg_white_round_top</item>
+    </style>
+</resources>

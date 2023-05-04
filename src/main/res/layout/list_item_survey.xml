@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+    <data>
+        <variable
+            name="brandTheme"
+            type="com.lib.loopsdk.data.remote.dto.InitializeDto.Data.BrandTheme" />
+
+        <variable
+            name="brandThemeColors"
+            type="com.lib.loopsdk.core.util.Colors" />
+
+    </data>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="291dp"
+    android:layout_marginBottom="16dp"
+    android:layout_marginHorizontal="8dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/cvBg"
+        android:layout_width="match_parent"
+        android:layout_height="227dp"
+        app:cardElevation="0dp"
+        app:containerShape="@{brandTheme.themeShapes.container.style}"
+        app:cardBackgroundColor="@color/bg_gray"
+        android:layout_marginTop="64dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"/>
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/ivTop"
+        android:layout_width="127dp"
+        android:layout_height="127dp"
+        android:src="@drawable/ic_surveylist"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tvTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:maxLines="2"
+        android:ellipsize="end"
+        style="@style/ButtonLight"
+        android:tag="ButtonLight"
+        app:fontName="@{brandTheme.themeFont.style}"
+        app:textViewColor="@{brandThemeColors.PRIMARY_BRAND_COLOR}"
+        android:gravity="center"
+        android:layout_marginHorizontal="16dp"
+        app:layout_constraintTop_toBottomOf="@+id/ivTop"/>
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tvBenefit"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:maxLines="2"
+        android:ellipsize="end"
+        style="@style/BodyDefault"
+        android:tag="BodyDefault"
+        app:fontName="@{brandTheme.themeFont.style}"
+        android:gravity="center"
+        android:textColor="@color/text_dark_gray"
+        android:layout_marginHorizontal="16dp"
+        app:layout_constraintTop_toBottomOf="@+id/tvTitle"/>
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/cvStartResume"
+        android:layout_width="match_parent"
+        android:layout_height="36dp"
+        app:cardElevation="0dp"
+        app:shape="@{brandTheme.themeShapes.buttons.style}"
+        app:style="@{brandTheme.themeButtons.style}"
+        android:layout_marginHorizontal="16dp"
+        android:layout_marginBottom="16dp"
+        app:layout_constraintBottom_toBottomOf="parent">
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvStartResume"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            style="@style/ButtonDefault"
+            android:tag="ButtonDefault"
+            app:fontName="@{brandTheme.themeFont.style}"
+            app:colorIfInsideButton="@{brandTheme.themeButtons.style}"
+            android:layout_gravity="center"
+            android:gravity="center_vertical"
+             />
+    </com.google.android.material.card.MaterialCardView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

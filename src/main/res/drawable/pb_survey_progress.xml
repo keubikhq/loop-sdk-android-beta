@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:id="@android:id/background">
+        <shape>
+            <corners android:topLeftRadius="10dp" android:topRightRadius="0dp"
+                android:bottomLeftRadius="10dp" android:bottomRightRadius="0dp"/>
+            <solid android:color="@color/bg_gray" />
+        </shape>
+    </item>
+
+    <item android:id="@android:id/progress">
+        <clip>
+            <shape>
+                <corners android:topLeftRadius="10dp" android:topRightRadius="0dp"
+                    android:bottomLeftRadius="10dp" android:bottomRightRadius="0dp"/>
+                <gradient
+                    android:endColor="@color/brand_color_airbnb_full_opacity"
+                    android:startColor="@color/brand_color_airbnb_full_opacity"
+                    />
+            </shape>
+        </clip>
+    </item>
+
+    <!--<item
+        android:id="@android:id/progress"
+        android:bottom="1dp"
+        android:left="1dp"
+        android:right="1dp"
+        android:top="1dp">
+
+        <scale android:scaleWidth="100%">
+            <shape>
+                <corners android:radius="10dp" />
+                <solid android:color="@color/primary_blue_darker_1" />
+            </shape>
+        </scale>
+    </item>-->
+</layer-list>

@@ -1,0 +1,227 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+
+    <data>
+
+        <variable
+            name="brandTheme"
+            type="com.lib.loopsdk.data.remote.dto.InitializeDto.Data.BrandTheme" />
+
+        <variable
+            name="brandThemeColors"
+            type="com.lib.loopsdk.core.util.Colors" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:id="@+id/rootView"
+        tools:theme="@style/LibraryTheme"
+        android:layout_height="wrap_content">
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/cvQuestionCount"
+            android:layout_width="108dp"
+            android:layout_height="32dp"
+            android:layout_marginTop="16dp"
+            app:cardElevation="0dp"
+            app:cardBackgroundColor="@color/bg_gray"
+            app:cardCornerRadius="20dp"
+            android:layout_marginStart="20dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvQuestionNo"
+                style="@style/Header100"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:tag="Header100"
+                android:textColor="@color/text_black"
+                app:fontName="@{brandTheme.themeFont.style}" />
+
+        </com.google.android.material.card.MaterialCardView>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/clQuestion"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/cvQuestionCount">
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvQuestion"
+                style="@style/Header400"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:tag="Header400"
+                android:textColor="#212121"
+                android:layout_marginStart="20dp"
+                app:fontName="@{brandTheme.themeFont.style}"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvDescription"
+                style="@style/BodyDefault"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:layout_marginStart="20dp"
+                android:tag="BodyDefault"
+                android:textColor="@color/text_medium_gray"
+                app:fontName="@{brandTheme.themeFont.style}"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tvQuestion" />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/ivDragArrow"
+                android:layout_width="15dp"
+                android:layout_height="22dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="36dp"
+                android:src="@drawable/ic_curve_arrow"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tvDescription" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvDrag"
+                style="@style/BodySmallSemiBold"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="36dp"
+                android:layout_marginTop="24dp"
+                android:tag="BodySmallSemiBold"
+                android:text="@string/drag_to_select"
+                android:textColor="#757575"
+                app:fontName="@{brandTheme.themeFont.style}"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tvDescription" />
+
+            <View
+                android:id="@+id/shrinkExpandAnim"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_marginStart="6dp"
+                android:alpha="0.7"
+                android:visibility="visible"
+                app:layout_constraintBottom_toBottomOf="@+id/answerSlider"
+                app:layout_constraintStart_toStartOf="@+id/answerSlider"
+                app:layout_constraintTop_toTopOf="@+id/answerSlider" />
+
+            <View
+                android:id="@+id/moveAnimView"
+                android:layout_width="16dp"
+                android:layout_height="16dp"
+                android:layout_marginStart="8dp"
+                android:visibility="visible"
+                app:layout_constraintBottom_toBottomOf="@+id/answerSlider"
+                app:layout_constraintStart_toStartOf="@+id/answerSlider"
+                app:layout_constraintTop_toTopOf="@+id/answerSlider" />
+
+            <com.warkiz.widget.IndicatorSeekBar
+                android:id="@+id/answerSlider"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="68dp"
+                android:layout_marginEnd="20dp"
+                app:isb_indicator_content_layout="@layout/custom_indicator_survey"
+                app:isb_indicator_text_size="12sp"
+                app:isb_seek_smoothly="true"
+                app:isb_show_indicator="custom"
+                app:isb_thumb_drawable="@drawable/slider_thumb3"
+                app:isb_thumb_size="28dp"
+                app:isb_ticks_count="6"
+                app:isb_track_background_color="#EEEEEE"
+                app:isb_track_progress_color="#EEEEEE"
+                app:layout_constraintTop_toBottomOf="@+id/tvDescription" />
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cvStartValue"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_marginStart="28dp"
+                android:layout_marginTop="20dp"
+                android:backgroundTint="#EEEEEE"
+                app:cardCornerRadius="15dp"
+                app:cardElevation="0dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/answerSlider">
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tvMinValue"
+                    style="@style/ButtonDefault"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:tag="ButtonDefault"
+                    android:textColor="#212121"
+                    app:fontName="@{brandTheme.themeFont.style}" />
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cvEndValue"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="28dp"
+                android:backgroundTint="#EEEEEE"
+                app:cardCornerRadius="15dp"
+                app:cardElevation="0dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/answerSlider">
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tvMaxValue"
+                    style="@style/ButtonDefault"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:tag="ButtonDefault"
+                    android:textColor="#212121"
+                    app:fontName="@{brandTheme.themeFont.style}" />
+            </androidx.cardview.widget.CardView>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                app:layout_constraintTop_toBottomOf="@+id/cvStartValue">
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tvMinText"
+                    style="@style/BodyDefault"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="28dp"
+                    android:layout_marginTop="12dp"
+                    android:layout_weight="1"
+                    android:tag="BodyDefault"
+                    android:textColor="#212121"
+                    app:fontName="@{brandTheme.themeFont.style}" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tvMaxText"
+                    style="@style/BodyDefault"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginTop="12dp"
+                    android:layout_marginEnd="28dp"
+                    android:layout_weight="1"
+                    android:tag="BodyDefault"
+                    android:textAlignment="viewEnd"
+                    android:textColor="#212121"
+                    app:fontName="@{brandTheme.themeFont.style}"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/cvEndValue" />
+
+            </LinearLayout>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

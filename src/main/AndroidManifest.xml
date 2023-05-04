@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.lib.loopsdk">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.READ_CONTACTS" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+
+    <application>
+        <activity
+            android:name=".ui.feature_earn.EarnZoneActivity"
+            android:exported="false"
+            android:theme="@style/LibraryTheme">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".ui.feature_spin_the_wheel.spin_wheel_list.SpinWheelListActivity"
+            android:exported="false"
+            android:theme="@style/LibraryTheme">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".core.util.FullScreenNetworkErrorActivity"
+            android:exported="false"
+            android:theme="@style/LibraryTheme">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".ui.feature_spin_the_wheel.spin_wheel_detail.SpinWheelDetailActivity"
+            android:exported="false"
+            android:theme="@style/LibraryTheme" />
+        <activity
+            android:name=".ui.feature_scratch_card.ScratchCardLandingActivity"
+            android:exported="false"
+            android:theme="@style/LibraryTheme">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".ui.feature_scratch_card.ScratchCardsListHomeActivity"
+            android:exported="false"
+            android:theme="@style/LibraryTheme">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".ui.feature_survey.presentation.trivia_quiz.TriviaQuizQuesActivity"
+            android:exported="false"
+            android:theme="@style/LibraryTheme">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".ui.feature_survey.presentation.dynamic_quiz.DynamicQuizQuestionsActivity"
+            android:exported="false"
+            android:theme="@style/LibraryTheme">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name="com.lib.loopsdk.ui.feature_tier_details_points_wallet.presentation.TierDetailsPointsWalletActivity"
+            android:exported="false"
+            android:theme="@style/LibraryTheme">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name="com.lib.loopsdk.ui.feature_landing_home.presentation.LandingHomeActivity"
+            android:exported="false"
+            android:theme="@style/LibraryTheme">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".ui.feature_survey.presentation.quizzlet_list.QuizzletActivity"
+            android:exported="false"
+            android:theme="@style/LibraryTheme">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".ui.feature_survey.presentation.survey_quiz_detail.SurveyQuizDetailActivity"
+            android:exported="false"
+            android:theme="@style/LibraryTheme" />
+        <activity
+            android:name=".ui.feature_survey.presentation.survey_questions.SurveyQuestionsActivity"
+            android:exported="false"
+            android:theme="@style/LibraryTheme" />
+        <activity
+            android:name=".ui.feature_offers.OffersActivity"
+            android:exported="false"
+            android:theme="@style/LibraryTheme">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".ui.feature_loyalty_intro.presentation.IntroductionActivity"
+            android:exported="false"
+            android:theme="@style/LibraryTheme" />
+        <activity
+            android:name=".ui.feature_loyalty_intro.presentation.SignUpIntroActivity"
+            android:exported="false"
+            android:theme="@style/LibraryTheme" />
+    </application>
+
+</manifest>
