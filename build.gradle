@@ -2,8 +2,12 @@ plugins {
     id 'com.android.library'
     id 'org.jetbrains.kotlin.android'
     id 'kotlin-kapt'
+    id 'signing'
+    id 'maven-publish'
 }
+
 apply from: "${rootProject.projectDir}/build-variants.gradle"
+
 android {
     compileSdk 33
 
@@ -19,7 +23,7 @@ android {
 
     buildTypes {
         release {
-            debuggable true
+            debuggable false
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
@@ -33,6 +37,13 @@ android {
     }
     dataBinding {
         enabled = true
+    }
+    publishing {
+        singleVariant("debug") {
+            // if you don't want sources/javadoc, remove these lines
+            //withSourcesJar()
+            withJavadocJar()
+        }
     }
 }
 
@@ -95,4 +106,105 @@ dependencies {
 
     //Slider
     implementation 'com.github.warkiz.widget:indicatorseekbar:2.1.2'
+}
+group 'io.looployalty.android'
+version '1.2'
+
+// For more details on Dokka's configuration, see https://github.com/Kotlin/dokka.
+/*dokka {
+    // Minimal configuration.
+    outputFormat = 'javadoc'
+    outputDirectory = "$buildDir/javadoc"
+
+    // Use to include or exclude non public members.
+    includeNonPublic = false
+
+    // Do not output deprecated members. Applies globally, can be overridden by packageOptions.
+    skipDeprecated = false
+
+    // Emit warnings about not documented members. Applies globally, also can be overridden by packageOptions.
+    reportUndocumented = true
+
+    // Do not create index pages for empty packages
+    skipEmptyPackages = true
+
+    // Example of how to link to external documentation.
+    // The following links to AndroidX.
+    // Repeat for multiple links.
+    externalDocumentationLink {
+        // Root URL of the generated documentation to link with. The trailing slash is required!
+        url = new URL("https://developer.android.com/reference/")
+
+        // If package-list file located in non-standard location
+        packageListUrl = new URL("https://developer.android.com/reference/androidx/package-list")
+    }
+}*/
+
+/*task androidJavadocsJar(type: Jar, dependsOn: dokka) {
+    classifier = 'javadoc'
+    from dokka.outputDirectory
+}
+
+task androidSourcesJar(type: Jar) {
+    classifier = 'sources'
+    from android.sourceSets.main.java.srcDirs
+}*/
+
+afterEvaluate{
+    publishing {
+        publications {
+            Staging(MavenPublication){
+                from components.debug
+
+                groupId = 'io.looployalty.android'
+                artifactId = 'loop'
+                version = '1.2'
+
+                pom {
+                    name = 'Loop-Android'
+                    description = 'Loop is an open-source library which offers a cutom loyalty program'
+                    url = 'https://github.com/keubikhq/loop-sdk-android-beta'
+                    inceptionYear = '2023'
+
+                    licenses {
+                        license {
+                            name = 'MIT License'
+                            url = 'http://www.opensource.org/licenses/mit-license.php'
+                        }
+                    }
+
+                    developers {
+                        developer {
+                            id = 'unifynd'
+                            name = 'Yugal Yadav'
+                            email = 'aws@unifynd.com'
+                        }
+                    }
+
+                    scm {
+                        connection = 'scm:git:git:github.com/keubikhq/loop-sdk-android-beta.git'
+                        developerConnection = 'scm:git:ssh://github.com/keubikhq/loop-sdk-android-beta.git'
+                        url = 'https://github.com/keubikhq/loop-sdk-android-beta'
+                    }
+
+                }
+            }
+        }
+        repositories {
+            maven {
+                name = "OSSRH"
+                url = "https://s01.oss.sonatype.org/service/local/staging/deploy/maven2/"
+                credentials {
+                    username = project.properties["ossrhUsername"]
+                    password = project.properties["ossrhPassword"]
+                }
+            }
+        }
+    }
+}
+
+
+
+signing {
+    sign publishing.publications
 }
